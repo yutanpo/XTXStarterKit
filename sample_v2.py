@@ -12,4 +12,4 @@ while(True):
     with open("blah.txt", "a+") as wp:
         wp.write(data + '\n')
 
-    submit_prediction(2)
+    submit_prediction(data)
