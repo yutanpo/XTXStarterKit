@@ -7,6 +7,8 @@ def get_data():
 def submit_prediction(pred):
     print(str(pred))
 
+### YOUR CODE BELOW
+
 while(True):
     try:
         data = get_data()
