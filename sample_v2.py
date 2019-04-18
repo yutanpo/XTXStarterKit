@@ -8,8 +8,11 @@ def submit_prediction(pred):
     print(str(pred))
 
 while(True):
-    data = get_data()
-    with open("blah.txt", "a+") as wp:
-        wp.write(data + '\n')
+    try:
+        data = get_data()
+        with open("blah.txt", "a+") as wp:
+            wp.write(data + '\n')
 
-    submit_prediction(data)
+        submit_prediction(data)
+    except EOFError as e:
+        break;
