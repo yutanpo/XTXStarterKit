@@ -4,7 +4,7 @@ import subprocess
 ### Changes you make to this file will not persist on our testing servers
 
 RESULT_LOCATION = '/app/data/result.txt'
-
+DATASET_LOCATION = 'data.csv'
 
 def follow(the_process):
     while(True):
@@ -14,7 +14,7 @@ def follow(the_process):
 p = subprocess.Popen(["python3", "sample_v2.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 output = follow(p)
 
-with open('data.csv') as fp:
+with open(DATASET_LOCATION) as fp:
     with open(RESULT_LOCATION, 'a+') as wp:
         while(True):
             line = fp.readline()

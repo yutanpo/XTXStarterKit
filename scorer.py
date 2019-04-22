@@ -2,13 +2,14 @@ import time
 
 ### Changes you make to this file will not persist to our testing servers
 
-OUTPUT_FILE = 'output.txt'
+RESULT_LOCATION = 'output.txt'
+DATASET_LOCATION = 'data.csv'
 
 err2_tally = 0
 y2_tally = 0
 
-with open('data.csv', 'r') as dp:
-    with open(OUTPUT_FILE, 'r') as sp:
+with open(DATASET_LOCATION, 'r') as dp:
+    with open(RESULT_LOCATION, 'r') as sp:
         i = 0
         while(True):
             line = dp.readline()
