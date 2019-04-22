@@ -10,6 +10,14 @@ The goal of this challenge is to create a program to predict stock movement base
 * You should keep in mind that your model will be tested on data which is similar to `data.csv`, however it does not contain the y column.
 
 ## sample_v2.py
+* Use this file if you are writing your program in Python.
+* This file contains the starter code for your program.
+* Use the function `get_next_data()` to read a line of data.
+* Use the function `submit_prediction(pred)` to submit your prediction for the y value of the next row of data.
+* You cannot call `get_next_data()` twice in a row without calling `submit_prediction(pred)`.
+
+## sample.r
+* Use this file if you are writing your program in R.
 * This file contains the starter code for your program.
 * Use the function `get_next_data()` to read a line of data.
 * Use the function `submit_prediction(pred)` to submit your prediction for the y value of the next row of data.
