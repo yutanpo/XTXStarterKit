@@ -11,10 +11,10 @@ def submit_prediction(pred):
 
 while(True):
     try:
+        ### Get next line of data
         data = get_data()
-        with open("blah.txt", "a+") as wp:
-            wp.write(data + '\n')
 
-        submit_prediction(data)
+        ### Guess 0 every time
+        submit_prediction(0)
     except EOFError as e:
         break;

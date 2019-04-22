@@ -1,13 +1,13 @@
 library(subprocess)
 
-handle <- spawn_process('r_script.sh')
+input<-file('stdin', 'r')
 
 get_next_data <- function() {
-  process_read(handle, timeout = 10000)
+  readLines(input, n=1)
 }
 
 submit_prediction <- function(pred) {
-  write(pred, file="output.txt", append=TRUE)
+  cat(pred + "\n")
 }
 
 ### YOUR CODE BELOW

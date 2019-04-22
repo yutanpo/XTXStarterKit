@@ -1,6 +1,11 @@
 import time
 import subprocess
 
+### Changes you make to this file will not persist on our testing servers
+
+RESULT_LOCATION = '/app/data/result.txt'
+
+
 def follow(the_process):
     while(True):
         line = the_process.stdout.readline()
@@ -10,7 +15,7 @@ p = subprocess.Popen(["python3", "sample_v2.py"], stdin=subprocess.PIPE, stdout=
 output = follow(p)
 
 with open('data.csv') as fp:
-    with open('/app/data/result.txt', 'a+') as wp:
+    with open(RESULT_LOCATION, 'a+') as wp:
         while(True):
             line = fp.readline()
             if not line: #EOF
