@@ -1,5 +1,6 @@
 library(subprocess)
 
+
 input<-file('stdin', 'r')
 
 get_next_data <- function() {
@@ -7,7 +8,7 @@ get_next_data <- function() {
 }
 
 submit_prediction <- function(pred) {
-  cat(pred + "\n")
+  cat(paste(pred, "\n"), sep="")
 }
 
 ### YOUR CODE BELOW

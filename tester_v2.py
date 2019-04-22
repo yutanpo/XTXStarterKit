@@ -12,6 +12,7 @@ def follow(the_process):
         yield line
 
 p = subprocess.Popen(["python3", "sample_v2.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+#p = subprocess.Popen(["r", "-f", "sample.r", "--slave"], stdin=subprocess.PIPE, stdout=subprocess.PIPE) #for R programs
 output = follow(p)
 
 with open(DATASET_LOCATION) as fp:
