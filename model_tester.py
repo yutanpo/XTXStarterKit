@@ -5,14 +5,19 @@ import subprocess
 
 RESULT_LOCATION = '/app/data/result.txt'
 DATASET_LOCATION = 'data.csv'
+SCORE_LOCATION = '/app/data/score.txt'
+
+argc = len(sys.argv)
 
 def follow(the_process):
     while(True):
         line = the_process.stdout.readline()
         yield line
 
-p = subprocess.Popen(["python3", "sample_v2.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-#p = subprocess.Popen(["r", "-f", "sample.r", "--slave"], stdin=subprocess.PIPE, stdout=subprocess.PIPE) #for R programs
+p = subprocess.Popen(["python3", "sample.py"], stdin=subprocess.PIPE, stdout=subprocess.PIPE) \
+    if not(argc > 1 and argv[1] == "r") else \
+    subprocess.Popen(["r", "-f", "sample.r", "--slave"], stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+
 output = follow(p)
 
 with open(DATASET_LOCATION) as fp:
@@ -20,9 +25,10 @@ with open(DATASET_LOCATION) as fp:
         while(True):
             line = fp.readline()
             if not line: #EOF
-                break;
+                break
             p.stdin.write(str.encode(line))
             p.stdin.flush()
             wp.write(output.__next__().decode("utf-8"))
 
-
+# Score submission
+p = subprocess.run(["python3", "scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])

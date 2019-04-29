@@ -4,6 +4,16 @@ import time
 
 RESULT_LOCATION = 'output.txt'
 DATASET_LOCATION = 'data.csv'
+SCORE_LOCATION = 'score.txt'
+
+argc = len(sys.argv)
+
+if (argc > 1):
+    RESULT_LOCATION = argv[1]
+if (argc > 2): 
+    DATASET_LOCATION = argv[2]
+if (argc > 3):
+    SCORE_LOCATION = argv[3]
 
 err2_tally = 0
 y2_tally = 0
@@ -29,3 +39,6 @@ with open(DATASET_LOCATION, 'r') as dp:
 r2 = 1 - err2_tally / y2_tally
 
 print("You achieved an r2 value of :{}".format(r2))
+
+with open(SCORE_LOCATION, 'a+') as wp:
+    wp.write(r2)
