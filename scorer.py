@@ -24,7 +24,7 @@ with open(DATASET_LOCATION, 'r') as dp:
         while(True):
             line = dp.readline()
             if not line:
-                break;
+                break
             if i == 0:
                 i += 1
                 continue; # don't read first line of data because it contains headers
