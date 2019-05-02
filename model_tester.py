@@ -1,8 +1,7 @@
 import time
 import subprocess
-
+import sys
 ### Changes you make to this file will not persist on our testing servers
-
 RESULT_LOCATION = '/app/data/result.txt'
 DATASET_LOCATION = 'data.csv'
 SCORE_LOCATION = '/app/data/score.txt'

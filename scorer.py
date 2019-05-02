@@ -1,5 +1,5 @@
 import time
-
+import sys
 ### Changes you make to this file will not persist to our testing servers
 
 RESULT_LOCATION = 'output.txt'
@@ -9,11 +9,11 @@ SCORE_LOCATION = 'score.txt'
 argc = len(sys.argv)
 
 if (argc > 1):
-    RESULT_LOCATION = argv[1]
+    RESULT_LOCATION = sys.argv[1]
 if (argc > 2): 
-    DATASET_LOCATION = argv[2]
+    DATASET_LOCATION = sys.argv[2]
 if (argc > 3):
-    SCORE_LOCATION = argv[3]
+    SCORE_LOCATION = sys.argv[3]
 
 err2_tally = 0
 y2_tally = 0
@@ -41,4 +41,4 @@ r2 = 1 - err2_tally / y2_tally
 print("You achieved an r2 value of :{}".format(r2))
 
 with open(SCORE_LOCATION, 'a+') as wp:
-    wp.write(r2)
+    wp.write(str(r2))
