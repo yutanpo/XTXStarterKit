@@ -27,7 +27,7 @@ with open(DATASET_LOCATION, 'r') as dp:
                 break
             if i == 0:
                 i += 1
-                continue; # don't read first line of data because it contains headers
+                continue # don't read first line of data because it contains headers
             y_true = float(line.split(',')[-1][:-1])
 
             guess_line = sp.readline()[:-1] 

@@ -17,4 +17,4 @@ while(True):
         ### Guess 0 every time
         submit_prediction(0)
     except EOFError as e:
-        break;
+        break
