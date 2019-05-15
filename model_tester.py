@@ -5,7 +5,7 @@ import sys
 RESULT_LOCATION = '/app/data/result.txt'
 DATASET_LOCATION = 'data.csv'
 SCORE_LOCATION = '/app/data/score.txt'
-
+INCLUDE_Y_VALUE = False
 argc = len(sys.argv)
 
 def follow(the_process):
@@ -25,6 +25,9 @@ with open(DATASET_LOCATION) as fp:
             line = fp.readline()
             if not line: #EOF
                 break
+
+            if not INCLUDE_Y_VALUE:
+                line = ','.join(line.split(',')[:-1]) + '\n'
             p.stdin.write(str.encode(line))
             p.stdin.flush()
             wp.write(output.__next__().decode("utf-8"))
