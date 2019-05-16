@@ -18,7 +18,7 @@ argc = len(sys.argv)
 
 def log_pipe(pipe):
     for line in iter(pipe.stderr.readline, b''):
-        print(line)
+        print(line.decode('utf-8'))
 
 def follow(the_process):
     while(True):
@@ -34,7 +34,7 @@ stderr_logger_thread.start()
 
 output = follow(p)
 
-with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'a+') as result_file:
+with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_file:
     # Skip header
     header = data_file.readline()
     print(header)
