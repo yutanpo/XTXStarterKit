@@ -52,7 +52,7 @@ You should remove this folder if you are writing your solution in `R`.
 * You should NOT print to stdout as `model_tester.py` will be looking for your predictions from stdout
 * Print to stderr instead for debugging
 
-##### `requirements.txt`
+##### `python/requirements.txt`
 * List any packages you wish to be installed at runtime.
 
 #### `r`
