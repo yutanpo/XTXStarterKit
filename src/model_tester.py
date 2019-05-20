@@ -28,12 +28,16 @@ def follow(the_process):
         line = the_process.stdout.readline()
         yield line
 
-if not os.path.isfile(RESULT_LOCATION):
-    with open(RESULT_LOCATION, 'a'):
-        os.utime(RESULT_LOCATION, None)
-if not os.path.isfile(SCORE_LOCATION):
-    with open(SCORE_LOCATION, 'a'):
-        os.utime(SCORE_LOCATION, None)
+def __create_dir(filepath):
+    if not os.path.exists(os.path.dirname(filepath)):
+        try:
+            os.makedirs(os.path.dirname(filepath))
+        except OSError as exc: # Guard against race condition
+            if exc.errno != errno.EEXIST:
+                raise
+
+__create_dir(RESULT_LOCATION)
+__create_dir(SCORE_LOCATION)
 if not os.path.isfile(DATASET_LOCATION):
     print(f"Cannot find dataset at {DATASET_LOCATION}, please move dataset \
             here or specify dataset path")

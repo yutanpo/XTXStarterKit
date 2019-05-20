@@ -1,5 +1,5 @@
 *__pycache__
 data.csv
-result.txt
-score.txt
+*result.txt
+*score.txt
 .R*
