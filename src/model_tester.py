@@ -8,9 +8,9 @@ import time, subprocess, sys, multiprocessing, os
 
 # Change these paths to point to your local machine
 cwd = os.getcwd()
-RESULT_LOCATION = os.path.join(cwd, 'scoring/result.txt')
+RESULT_LOCATION = os.path.join(cwd, 'results/result.txt')
 DATASET_LOCATION = os.path.join(cwd, 'data.csv')
-SCORE_LOCATION = os.path.join(cwd, 'scoring/score.txt')
+SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
 INCLUDE_Y_VALUE = False
 argc = len(sys.argv)
