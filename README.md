@@ -1,4 +1,4 @@
-# XTX Prediction Challenge
+# XTX Markets Forecasting Challenge
 
 ## Instructions
 
