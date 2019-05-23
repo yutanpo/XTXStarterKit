@@ -2,9 +2,9 @@ import time
 import sys
 ### Changes you make to this file will not persist to our testing servers
 
-RESULT_LOCATION = 'scoring/output.txt'
+RESULT_LOCATION = 'results/output.txt'
 DATASET_LOCATION = 'data.csv'
-SCORE_LOCATION = 'scoring/score.txt'
+SCORE_LOCATION = 'results/score.txt'
 
 argc = len(sys.argv)
 

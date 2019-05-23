@@ -51,5 +51,5 @@ while (TRUE) {
     # Guess 1 every time
     submit_prediction(1)
 
-  }, error=function(e){})
+  }, error=function(e){quit()})
 } 

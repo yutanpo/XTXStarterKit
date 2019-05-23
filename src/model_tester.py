@@ -45,7 +45,7 @@ if not os.path.isfile(DATASET_LOCATION):
 p = subprocess.Popen(["python3", "python/submission.py"], stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
     if not(argc > 1 and sys.argv[1] == "r") else \
-    subprocess.Popen(["r", "-f", "r/submission.r", "--slave"],
+    subprocess.Popen(["Rscript", "r/submission.r"],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
 stderr_logger_thread = multiprocessing.Process(target=log_pipe, args=(p,))
