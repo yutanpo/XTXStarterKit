@@ -1,11 +1,11 @@
 #!/usr/bin/Rscript
 
-# R Starter Kit
+# R submission
 # 
 # Implement your model below
 # 
-# 1. Use get_next_data to receive your data
-# 2. Predict the value
+# 1. Use get_next_data to receive a row of data
+# 2. Predict the value 
 
 input <- file('stdin')
 open(input, 'rb')
@@ -41,14 +41,26 @@ eprint <- function(msg) {
 # This sample algorithm naively sends 
 # 1 as the prediction for every line
 # of data
-
+#
+# IMPORTANT !!!
+# 
+# 1. You MUST use get_next_data() and submit_prediction(pred) 
+# 	 below for your submissions to work correctly
+#
+# 2. get_next_data() CANNOT be called more then once
+# 	 in a row without calling self.submit_prediction(pred).
 while (TRUE) {
   tryCatch({
     
     # Read data
+    # 
+    # get_next_data() MUST be used to read the next now of data
     data <- get_next_data()
 
     # Guess 1 every time
+    #
+    # submit_prediction(pred) MUST be used submit your 
+    # prediction for the current row of data
     submit_prediction(1)
 
   }, error=function(e){quit()})

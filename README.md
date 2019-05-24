@@ -49,9 +49,9 @@ This folder should be removed if the solution is written in `R`.
 * This file should be used if the solution is written in Python.
 * This file contains the starter code for the submission program.
 * This extends the `Submission` class found in `core.py`.
-* The function `self.get_next_data()` should be used to read a line of data.
-* The function `self.submit_prediction(pred)` should be used to submit a prediction for the y value of the next row of data.
-* `self.get_next_data()` cannot be called two or more times in a row without calling `self.submit_prediction(pred)`.
+* The function `self.get_next_data()` **must** be used to read a line of data.
+* The function `self.submit_prediction(pred)` **must** be used to submit a prediction for the y value of the next row of data.
+* **`self.get_next_data()` cannot be called two or more times in a row without calling `self.submit_prediction(pred)`**.
 * Messages should not be printed to stdout because `model_tester.py` will be looking for predictions from stdout.
 * To debug, messages should be printed to stderr.
 
@@ -65,9 +65,9 @@ This folder should be removed if the solution is written in `python`.
 ##### `r.submission.r`
 * This file should be used if the solution is written in R.
 * This file contains the starter code for the submission program.
-* The function `get_next_data()` should be used to read a line of data.
-* The function `submit_prediction(pred)` should be used to submit a prediction for the y value of the next row of data.
-* `get_next_data()` cannot be called two or more times in a row without calling `submit_prediction(pred)`.
+* The function `get_next_data()` **must** be used to read a line of data.
+* The function `submit_prediction(pred)` **must** be used to submit a prediction for the y value of the next row of data.
+* **`get_next_data()` cannot be called two or more times in a row without calling `submit_prediction(pred)`**.
 * Messages should not be printed to stdout because `model_tester.py` will be looking for predictions from stdout.
 * To debug, messages should be printed to stderr.
 
