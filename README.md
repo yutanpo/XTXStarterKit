@@ -13,9 +13,11 @@ The goal of this challenge is to create a program to predict stock movement base
 
 ### Starterkit Folder Structure
 
-There are two programming languages that are currently supported for this challenge. In this challenge, There are three relevant folders - one named `src` containing all the source code
-needed to process data files and getting your result, another two named either `python` or `r` depending on preference of language to be used in the submission. The first step should be to choose a
-programming language by removing the folder that is unnecessary for the submission. For example, if the language used in a submission is `python`, the `r` folder should be removed.
+There are two programming languages that are currently supported for this challenge. In this challenge, There are three
+relevant folders - one named `src` containing all the source code needed to process data files and getting your result,
+another two named either `python` or `r` depending on preference of language to be used in the submission. The first step
+should be to choose a programming language by removing the folder that is unnecessary for the submission.
+For example, if the language used in a submission is `python`, the `r` folder should be removed.
 
 ### The `src` folder
 
@@ -28,10 +30,10 @@ None of these files require changing; however, there are a couple functions in t
 * Any changes made to this file will not persist on the testing servers.
 
 ## `src/scorer.py`
-* This program is used to score a prediction vector
-* Point the program to the submission's prediction vector with `RESULT_LOCATION`
-* Point the program at the dataset used to create the prediction vector with `DATASET_LOCATION`
-* This program will print the final `r2` value to stdout after running with `python3 src/scorer.py` 
+* This program is used to score a prediction vector.
+* Point the program to the submission's prediction vector with `RESULT_LOCATION`.
+* Point the program at the dataset used to create the prediction vector with `DATASET_LOCATION`.
+* This program will print the final `r2` value to stdout after running with `python3 src/scorer.py`.
 
 ### The Submission Folders
 
@@ -46,7 +48,7 @@ This folder should be removed if the solution is written in `R`.
 ##### `python/submission.py`
 * This file should be used if the solution is written in Python.
 * This file contains the starter code for the submission program.
-* Extends the `Submission` class found in `core.py`
+* This extends the `Submission` class found in `core.py`.
 * The function `self.get_next_data()` should be used to read a line of data.
 * The function `self.submit_prediction(pred)` should be used to submit a prediction for the y value of the next row of data.
 * `self.get_next_data()` cannot be called two or more times in a row without calling `self.submit_prediction(pred)`.
