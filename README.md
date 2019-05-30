@@ -13,15 +13,16 @@ The goal of this challenge is to create a program to predict stock movement base
 
 ### StarterKit Folder Structure
 
-There are two programming languages that are currently supported for this challenge, Python and R. In this challenge, There 
-are three relevant folders - one named `src` containing all the source code needed to process data files and getting your 
-result, another two named either `python` or `r` depending on preference of language to be used in the submission. The first 
-step should be to choose a programming language by removing the folder that is unnecessary for the submission. For example, if 
-the language used in a submission is `python`, the `r` folder should be removed.
+There are two programming languages that are currently supported for this challenge, Python and R.
+
+In this challenge, There are three relevant folders - one named `src` containing all the source code needed to process data 
+files and getting your result, another two named either `python` or `r` depending on preference of language to be used in the 
+submission. The first step should be to choose a programming language by removing the folder that is unnecessary for the 
+submission. For example, if the language used in a submission is `python`, the `r` folder should be removed.
 
 ### The `src` folder
 
-None of these files require changing; however, there are a couple of functions in this folder that are quite important to know.
+**None of these files require changing**; however, there are a couple of functions in this folder that are quite important to know.
 
 ## `src/model_tester.py`
 * This program is used to test the model by running `python3 src/model_tester.py`.
