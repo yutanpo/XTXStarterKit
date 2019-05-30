@@ -57,7 +57,8 @@ This folder should be removed if the solution is written in `R`.
 * To debug, messages should be printed to stderr.
 
 ##### `python/requirements.txt`
-* Any packages or dependencies necessary for the submission should be added here. These will be installed at runtime.
+* **Any packages or dependencies necessary for the submission should be added here.**
+* These will be installed at runtime.
 
 &nbsp;
 
@@ -75,7 +76,8 @@ This folder should be removed if the solution is written in `python`.
 * To debug, messages should be printed to stderr.
 
 ##### `r/requirements.txt`
-* Any packages or dependencies necessary for the submission should be added here. These will be installed at runtime.
+* **Any packages or dependencies necessary for the submission should be added here.**
+* These will be installed at runtime.
 
 ### Submission Instructions
 
