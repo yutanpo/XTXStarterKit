@@ -83,15 +83,13 @@ Follow these steps to upload a python submission:
 STEP 1
 Match this directory structure.
 
-      python
+     python
      ├── core.py (required)
      ├── submission.py (required)
      └── requirements.txt
 
 STEP 2
-Zip the whole directory.
-
---->  python.zip
+Zip the whole directory (i.e. python.zip)
 
 STEP 3
 Upload this .zip file on the challenge submission page.
@@ -103,14 +101,12 @@ Follow these steps to upload an r submission:
 STEP 1
 Match this directory structure.
 
-      r
+     r
      ├── submission.r (required)
      └── requirements.txt
 
 STEP 2
-Zip the whole directory.
-
---->  r.zip
+Zip the whole directory (i.e. r.zip)
 
 STEP 3
 Upload this .zip file on the challenge submission page.
