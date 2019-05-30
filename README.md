@@ -76,7 +76,7 @@ This folder should be removed if the solution is written in `python`.
 
 ### Submission Instructions
 
-#### Python Submissions
+#### For Python submissions
 
 Follow these steps to upload a python submission:
 
@@ -94,7 +94,7 @@ Zip the whole directory (i.e. `python.zip`)
 ##### Step 3
 Upload this .zip file on the challenge submission page.
 
-#### R Submissions
+#### For R submissions
 
 Follow these steps to upload an r submission:
 
