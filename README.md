@@ -73,3 +73,44 @@ This folder should be removed if the solution is written in `python`.
 
 ##### `r/requirements.txt`
 * Any packages or dependencies necessary for the submission should be added here. These will be installed at runtime.
+
+### Submission Instructions
+
+#### Python Submissions
+
+Follow these steps to upload a python submission:
+
+STEP 1
+Match this directory structure.
+
+      python
+     ├── core.py (required)
+     ├── submission.py (required)
+     └── requirements.txt
+
+STEP 2
+Zip the whole directory.
+
+--->  python.zip
+
+STEP 3
+Upload this .zip file on the challenge submission page.
+
+#### R Submissions
+
+Follow these steps to upload an r submission:
+
+STEP 1
+Match this directory structure.
+
+      r
+     ├── submission.r (required)
+     └── requirements.txt
+
+STEP 2
+Zip the whole directory.
+
+--->  r.zip
+
+STEP 3
+Upload this .zip file on the challenge submission page.
