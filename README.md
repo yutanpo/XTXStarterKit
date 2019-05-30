@@ -80,7 +80,7 @@ This folder should be removed if the solution is written in `python`.
 
 Follow these steps to upload a python submission:
 
-STEP 1
+##### Step 1
 Match this directory structure.
 
      python
@@ -88,25 +88,25 @@ Match this directory structure.
      ├── submission.py (required)
      └── requirements.txt
 
-STEP 2
-Zip the whole directory (i.e. python.zip)
+##### Step 2
+Zip the whole directory (i.e. `python.zip`)
 
-STEP 3
+##### Step 3
 Upload this .zip file on the challenge submission page.
 
 #### R Submissions
 
 Follow these steps to upload an r submission:
 
-STEP 1
+##### Step 1
 Match this directory structure.
 
      r
      ├── submission.r (required)
      └── requirements.txt
 
-STEP 2
-Zip the whole directory (i.e. r.zip)
+##### Step 2
+Zip the whole directory (i.e. `r.zip`)
 
-STEP 3
+##### Step 3
 Upload this .zip file on the challenge submission page.
