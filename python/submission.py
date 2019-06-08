@@ -51,17 +51,16 @@ class MySubmission(Submission):
 	def predict(self, data):
 		return 1.0
 
-	# run_submission() will iteratively fetch the next row of data in the format 
-	#    specified (get_next_data_raw, get_next_data_list, get_next_data_numpy_array)
-	#    for every prediction submitted to self.submit_prediction()
-    def run_submission(self):
-		
+    # run_submission() will iteratively fetch the next row of data in the format 
+    #    specified (get_next_data_raw, get_next_data_list, get_next_data_numpy_array)
+    #    for every prediction submitted to self.submit_prediction()
+	def run_submission(self):
 		self.debug_print("Use this print function for debugging purposes, do NOT use the default `print(...)`")
-	
-        while(True):
-            # Read data
-		    # 
-		    # get_next_data_raw() or get_next_data_list() or get_next_data_numpy_array() 
+
+		while(True):
+			# Read data
+			# 
+			# get_next_data_raw() or get_next_data_list() or get_next_data_numpy_array() 
 			# MUST be used to read the next row of data
 			# NOTE: you can only use one of (get_next_data_raw, get_next_data_list, get_next_data_numpy_array)
 			# to get the row of data, please refer to the `OVERVIEW OF DATA` section above
@@ -72,9 +71,9 @@ class MySubmission(Submission):
 
 			prediction = self.predict(data)
 
-		    # submit_prediction(pred) MUST be used submit your 
-		    # prediction for the current row of data
-            self.submit_prediction(prediction)
+			# submit_prediction(pred) MUST be used submit your 
+			# prediction for the current row of data
+			self.submit_prediction(prediction)
 
 
 if __name__ == "__main__":

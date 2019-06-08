@@ -1,21 +1,22 @@
 import sys
 import math
 import numpy
+import os
+
+def block_print():
+    sys.stdout = open(os.devnull, 'w')
+
+def enable_print():
+    sys.stdout = sys.__stdout__
 
 class Submission():
     def __init__(self):
         try:
-            self.block_print()
+            block_print()
             self.run_submission()
         except EOFError as e:
             pass
 
-    def block_print():
-        sys.stdout = open(os.devnull, 'w')
-    
-    def enable_print():
-        sys.stdout = sys.__stdout__
-    
     def run_submission(self):
         raise NotImplementedError("Please implement run_submission in your " +
                 "submission class")
@@ -66,9 +67,9 @@ class Submission():
         """
         Submits your prediction to standard output
         """
-        self.enable_print()
+        enable_print()
         print(str(prediction))
-        self.block_print()
+        block_print()
 
     def debug_print(self, msg):
         """
