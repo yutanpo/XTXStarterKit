@@ -2,10 +2,21 @@ import sys
 import math
 import numpy as np
 import os
+import io
+import contextlib
+
+save_stdout = sys.stdout
+
+def enable_print():
+    sys.stdout = sys.__stdout__
+
+def disable_print():
+    sys.stdout = open(os.devnull, 'w')
 
 class Submission():
     def __init__(self):
         try:
+            disable_print()
             self.run_submission()
         except EOFError as e:
             pass
@@ -22,6 +33,7 @@ class Submission():
         Input will not be supplied until output is 
         generated for the previous input
         """
+        
         return input()
         
     def get_next_data_list(self):
@@ -60,7 +72,11 @@ class Submission():
         """
         Submits your prediction to standard output
         """
+        enable_print()
         print(str(prediction))
+        sys.stdout.flush()
+        disable_print()
+        
 
     def debug_print(self, msg):
         """
