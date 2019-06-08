@@ -1,18 +1,11 @@
 import sys
 import math
-import numpy
+import numpy as np
 import os
-
-def block_print():
-    sys.stdout = open(os.devnull, 'w')
-
-def enable_print():
-    sys.stdout = sys.__stdout__
 
 class Submission():
     def __init__(self):
         try:
-            block_print()
             self.run_submission()
         except EOFError as e:
             pass
@@ -41,10 +34,10 @@ class Submission():
         generated for the previous input
         """
         raw_data_list = input().split(",")
-
+    
         # replace empty spots with NaN
         data_list = []
-        for order in data_list:
+        for order in raw_data_list:
             if not order:
                 data_list.append(math.nan)
             else:
@@ -61,15 +54,13 @@ class Submission():
         Input will not be supplied until output is 
         generated for the previous input
         """
-        return np.array(get_next_data_list)
+        return np.array(self.get_next_data_list())
     
     def submit_prediction(self, prediction):
         """
         Submits your prediction to standard output
         """
-        enable_print()
         print(str(prediction))
-        block_print()
 
     def debug_print(self, msg):
         """
