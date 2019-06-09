@@ -20,15 +20,9 @@ get_next_data_raw <- function() {
   readLines(input, n=1)
 }
 
-get_next_data_dataframe <- function() {
-  input <- readLines(input, n=1)
-  read.csv(text=input)
-}
-
-get_next_data_matrix <- function() {
-  input <- readLines(input, n=1)
-  dataframe <- read.csv(text=input)
-  as.matrix(dataframe)
+get_next_data_list <- function() {
+  raw_data <- readLines(input, n=1)
+  return(strsplit(raw_data, ','))
 }
 
 # Prints prediction standard out
@@ -48,9 +42,6 @@ debug_print <- function(msg) {
   write(msg, stderr())
 }
 
-get_prediction <- function(data) {
-  return 1.0
-}
 
 ### IMPLEMENT YOUR ALGORITHM BELOW ###
 # 
@@ -70,6 +61,10 @@ get_prediction <- function(data) {
 
 debug_print("HELLO")
 
+get_prediction <- function(data) {
+  return(1)
+}
+
 while (TRUE) {
   tryCatch({
     
@@ -77,10 +72,8 @@ while (TRUE) {
     # 
     # get_next_data() MUST be used to read the next now of data
     
-    # data <- get_next_data_dataframe()
-    # data <- get_next_data_matrix()
+    # data <- get_next_data_list()
     data <- get_next_data_raw()
-   
 
     predict <- get_prediction(data)
 
@@ -89,7 +82,7 @@ while (TRUE) {
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
 
-    submit_prediction(1)
+    submit_prediction(predict)
 
   }, error=function(e){quit()})
 } 
