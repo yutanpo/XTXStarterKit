@@ -9,7 +9,7 @@ from core import Submission
 # 
 # 1. Use get_next_data_raw() OR get_next_data_list() OR get_next_data_numpy_array() to recieve the next row of data
 # 2. Use predict method to write your prediction logic, and return a float representing your prediction
-# 4. Submit prediction using self.submit_prediction(...)
+# 3. Submit prediction using self.submit_prediction(...)
 #
 ######################################################################################################################
 #

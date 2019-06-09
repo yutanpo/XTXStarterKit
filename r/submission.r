@@ -1,58 +1,36 @@
 #!/usr/bin/Rscript
+source("core.r")
 
 # R submission
-# 
+#
 # Implement your model below
+#
+###################################################### OVERVIEW ######################################################
 # 
-# 1. Use get_next_data to receive a row of data
-# 2. Predict the value 
+# 1. Use get_next_data_raw() OR get_next_data_as_list() OR get_next_data_as_dataframe() OR get_next_data_as_matrix() to receive a row of data
+# 2. Use predict method to write your predicition logic, and return a float representing your prediction
+# 3. Submit your prediction using submit_prediction
+#
+######################################################################################################################
+#
+################################################## OVERVIEW OF DATA ##################################################
+# 
+#
+#
+######################################################################################################################
+#
+###################################################### IMPORTANT ######################################################
+# 
+#
+#
+#
+######################################################################################################################
+
 
 input <- file('stdin')
 open(input, 'rb')
 
-# Receives a line of data from standard input
-#
-# Standard input is fed into your algorithm
-# ONLY after a prediction for the previous
-# row of data is received.
-get_next_data_raw <- function() {
-  readLines(input, n=1)
-}
-
-get_next_data_as_list <- function() {
-  raw_data <- readLines(input, n=1)
-  strsplit(raw_data, ',')[[1]]
-}
-
-get_next_data_as_dataframe <- function() {
-  raw_data <- readLines(input, n=1)
-  read.csv(text=raw_data, sep=',', header=FALSE)
-}
-
-get_next_data_as_matrix <- function() {
-  raw_data <- readLines(input, n=1)
-  data_frame <- read.csv(text=raw_data, sep=',', header=FALSE)
-  return(as.matrix(data_frame))
-}
-
-
-# Prints prediction standard out
-#
-# Use this function for submitting
-# your actual prediction
-submit_prediction <- function(pred) {
-  write(pred, stdout()) 
-}
-
-# Prints to standard error
-# 
-# Use this for development / debugging
-# Output sent to standard error will not
-# be scored.
-debug_print <- function(msg) {
-  message(paste0(capture.output(msg), collapse = "\n"))
-}
-
+init()
 
 ### IMPLEMENT YOUR ALGORITHM BELOW ###
 # 
@@ -80,23 +58,21 @@ while (TRUE) {
     # Read data
     # 
     # get_next_data() MUST be used to read the next now of data
-    
+   
     #data <- get_next_data_as_dataframe()
     #data <- get_next_data_as_list()
     #data <- get_next_data_as_matrix()
     data <- get_next_data_raw()
-    
-    debug_print(data)
 
     # data <- get_next_data_raw()
-    predict <- get_prediction(data)
+    prediction <- get_prediction(data)
 
     # Guess 1 every time
     #
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
 
-    submit_prediction(predict)
+    submit_prediction(prediction)
 
   }, error=function(e){quit()})
 } 
