@@ -1,9 +1,5 @@
-import sys
-import math
+import sys, os, math,
 import numpy as np
-import os
-import io
-import contextlib
 
 save_stdout = sys.stdout
 
