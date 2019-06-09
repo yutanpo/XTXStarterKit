@@ -1,4 +1,4 @@
-import sys, os, math,
+import sys, os, math
 import numpy as np
 
 save_stdout = sys.stdout
