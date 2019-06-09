@@ -2,10 +2,10 @@
 
 function printUsage() {
     echo "---------------------------------------------------------------------------------------------------------------------"
-    echo "Usage: Should run in the /python directory. Please do not move this file!"
-    echo "$ ./test_submission.sh"
+    echo "Usage: Should run in the /r directory. Please do not move this file!"
+    echo "$ ./run_tester_r.sh"
     echo "This script will ensure that all required components for the model tester are present and in the correct directories."
-    echo "Additionally, the script will run the model tester on your Python submissions."
+    echo "Additionally, the script will run the model tester on your R submissions."
     echo "It is HIGHLY recommended to run this script and fix any errors prior to submitting your code."
     echo "---------------------------------------------------------------------------------------------------------------------"
     echo ""
@@ -16,7 +16,7 @@ function printExpectedFolderStructure() {
     echo "|-- python"
     echo "   |-- core.py"
     echo "   |-- requirements.txt"
-    echo "   |-- test_submission.sh"
+    echo "   |-- run_tester_r.sh"
     echo "   |-- submission.py"
     echo "|-- r"
     echo "   |-- requirements.txt"
@@ -40,14 +40,14 @@ function checkDataFilePresent() {
 }
 
 function checkSubmissionFile() {
-    if [ ! -f ./submission.py ]; then
-        >&2 echo "[ERROR] submission.py file not found at expected location."
+    if [ ! -f ./submission.r ]; then
+        >&2 echo "[ERROR] submission.r file not found at expected location."
         >&2 echo "[ERROR] Please, refer to the structure below:"
         echo ""
         printExpectedFolderStructure
         exit 1
     else
-        echo "[SUCCESS] submission.py found!"
+        echo "[SUCCESS] submission.r found!"
     fi
 }
 
@@ -87,18 +87,6 @@ function checkRequirementsFile() {
     fi
 }
 
-function checkCoreFile() {
-    if [ ! -f ./core.py ]; then
-        >&2 echo "[ERROR] core.py file not found at expected location."
-        >&2 echo "[ERROR] Please, refer to the structure below:"
-        echo ""
-        printExpectedFolderStructure
-        exit 1
-    else
-        echo "[SUCCESS] core.py  found!"
-    fi
-}
-
 function folderValidation() {
     echo "----------------------------"
     echo "Starting Folder Validation."
@@ -109,7 +97,6 @@ function folderValidation() {
     checkModelTester
     checkScorerFile
     checkRequirementsFile
-    checkCoreFile
     echo ""
     echo "-----------------------------------"
     echo "Finished Running Folder Validation."
@@ -117,7 +104,7 @@ function folderValidation() {
 }
 
 function runModelTester() {
-    python3 ../src/model_tester.py
+    python3 ../src/model_tester.py r
 }
 
 function main() {

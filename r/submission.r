@@ -7,6 +7,7 @@
 # 1. Use get_next_data to receive a row of data
 # 2. Predict the value 
 
+
 input <- file('stdin')
 open(input, 'rb')
 
@@ -15,8 +16,19 @@ open(input, 'rb')
 # Standard input is fed into your algorithm
 # ONLY after a prediction for the previous
 # row of data is received.
-get_next_data <- function() {
+get_next_data_raw <- function() {
   readLines(input, n=1)
+}
+
+get_next_data_dataframe <- function() {
+  input <- readLines(input, n=1)
+  read.csv(text=input)
+}
+
+get_next_data_matrix <- function() {
+  input <- readLines(input, n=1)
+  dataframe <- read.csv(text=input)
+  as.matrix(dataframe)
 }
 
 # Prints prediction standard out
@@ -32,8 +44,12 @@ submit_prediction <- function(pred) {
 # Use this for development / debugging
 # Output sent to standard error will not
 # be scored.
-eprint <- function(msg) {
+debug_print <- function(msg) {
   write(msg, stderr())
+}
+
+get_prediction <- function(data) {
+  return 1.0
 }
 
 ### IMPLEMENT YOUR ALGORITHM BELOW ###
@@ -49,18 +65,30 @@ eprint <- function(msg) {
 #
 # 2. get_next_data() CANNOT be called more then once
 # 	 in a row without calling self.submit_prediction(pred).
+#
+# 3. In order to debug by printing do NOT call the default method `print(...)`, rather call debug_print(...)
+
+debug_print("HELLO")
+
 while (TRUE) {
   tryCatch({
     
     # Read data
     # 
     # get_next_data() MUST be used to read the next now of data
-    data <- get_next_data()
+    
+    # data <- get_next_data_dataframe()
+    # data <- get_next_data_matrix()
+    data <- get_next_data_raw()
+   
+
+    predict <- get_prediction(data)
 
     # Guess 1 every time
     #
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
+
     submit_prediction(1)
 
   }, error=function(e){quit()})

@@ -40,11 +40,6 @@ from core import Submission
 
 
 # class MySubmission is the class that you will need to implement
-#    the class contains two methods: 
-# 		1. predict, where you will write your prediction logic
-#       2. run_submission, a method that will keep fetching the next row of data for every prediction submitted
-#          NOTE: this method will not fetch the next row of data, unless a prediction is submitted
-
 class MySubmission(Submission):
 
 	# predict(data) expects data as input and should return a 
