@@ -19,10 +19,22 @@ get_next_data_raw <- function() {
   readLines(input, n=1)
 }
 
-get_next_data_list <- function() {
+get_next_data_as_list <- function() {
   raw_data <- readLines(input, n=1)
-  return(strsplit(raw_data, ','))
+  strsplit(raw_data, ',')[[1]]
 }
+
+get_next_data_as_dataframe <- function() {
+  raw_data <- readLines(input, n=1)
+  read.csv(text=raw_data, sep=',', header=FALSE)
+}
+
+get_next_data_as_matrix <- function() {
+  raw_data <- readLines(input, n=1)
+  data_frame <- read.csv(text=raw_data, sep=',', header=FALSE)
+  return(as.matrix(data_frame))
+}
+
 
 # Prints prediction standard out
 #
@@ -38,7 +50,7 @@ submit_prediction <- function(pred) {
 # Output sent to standard error will not
 # be scored.
 debug_print <- function(msg) {
-  write(msg, stderr())
+  message(paste0(capture.output(msg), collapse = "\n"))
 }
 
 
@@ -69,9 +81,14 @@ while (TRUE) {
     # 
     # get_next_data() MUST be used to read the next now of data
     
-    # data <- get_next_data_list()
+    #data <- get_next_data_as_dataframe()
+    #data <- get_next_data_as_list()
+    #data <- get_next_data_as_matrix()
     data <- get_next_data_raw()
+    
+    debug_print(data)
 
+    # data <- get_next_data_raw()
     predict <- get_prediction(data)
 
     # Guess 1 every time
