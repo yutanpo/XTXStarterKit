@@ -7,7 +7,6 @@
 # 1. Use get_next_data to receive a row of data
 # 2. Predict the value 
 
-
 input <- file('stdin')
 open(input, 'rb')
 
@@ -58,8 +57,6 @@ debug_print <- function(msg) {
 # 	 in a row without calling self.submit_prediction(pred).
 #
 # 3. In order to debug by printing do NOT call the default method `print(...)`, rather call debug_print(...)
-
-debug_print("HELLO")
 
 get_prediction <- function(data) {
   return(1)
