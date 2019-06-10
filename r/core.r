@@ -43,13 +43,13 @@ debug_print <- function(msg) {
 }
 
 enable_print <- function() {
-    sink()
+  sink()
 }
 
 disable_print <- function() {
-    sink("/dev/null")
+  sink("/dev/null")
 }
 
 init <- function() {
-    disable_print()
+  disable_print()
 }
