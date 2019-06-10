@@ -89,7 +89,6 @@ while (TRUE) {
     #data <- get_next_data_as_dataframe()
     #data <- get_next_data_as_list()
     #data <- get_next_data_as_matrix()
-    #data <- get_next_data_raw()
     data <- get_next_data_raw()
     
     # Write prediction logic in get_prediction(...)

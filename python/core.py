@@ -32,7 +32,7 @@ class Submission():
         
         return input()
         
-    def get_next_data_list(self):
+    def get_next_data_as_list(self):
         """
         Reads input from standard input and stores row in a 
         list where missing values are represented as NaN
@@ -53,7 +53,7 @@ class Submission():
         
         return data_list
     
-    def get_next_data_numpy_array(self):
+    def get_next_data_as_numpy_array(self):
         """
         Reads input from standard input and stores row in a
         numpy array where missing values are represented as NaN
