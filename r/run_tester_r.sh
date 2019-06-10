@@ -107,8 +107,16 @@ function runModelTester() {
     python3 ../src/model_tester.py r
 }
 
+function checkPWD() {
+    if [[ "$PWD" != *"r" ]]; then
+        echo "[ERROR] This script is not being run from the r directory!"
+        exit 1
+    fi
+}
+
 function main() {
     printUsage
+    checkPWD
     folderValidation
     runModelTester
 }

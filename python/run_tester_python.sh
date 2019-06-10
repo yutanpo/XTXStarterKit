@@ -116,12 +116,20 @@ function folderValidation() {
     echo "-----------------------------------"
 }
 
+function checkPWD() {
+    if [[ "$PWD" != *"python" ]]; then
+        echo "[ERROR] This script is not being run from the python directory!"
+        exit 1
+    fi
+}
+
 function runModelTester() {
     python3 ../src/model_tester.py
 }
 
 function main() {
     printUsage
+    checkPWD
     folderValidation
     runModelTester
 }
