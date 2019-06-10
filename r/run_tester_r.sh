@@ -22,7 +22,7 @@ function printExpectedFolderStructure() {
     echo "   |-- requirements.txt"
     echo "   |-- submission.r"
     echo "   |-- core.r"
-    echo "   |-- run_tester_python.sh"
+    echo "   |-- run_tester_r.sh"
     echo "|-- src"
     echo "   |-- model_tester.py"
     echo "   |-- scorer.py"
