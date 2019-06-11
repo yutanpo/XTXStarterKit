@@ -7,7 +7,7 @@ CHANGES TO THIS FILE ARE NOT SUBMITTED.
 import time, subprocess, sys, multiprocessing, os
 
 # Change these paths to point to your local machine
-cwd = os.getcwd()
+cwd = os.path.split(os.getcwd())[0]
 RESULT_LOCATION = os.path.join(cwd, 'results/result.txt')
 DATASET_LOCATION = os.path.join(cwd, 'data.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
@@ -42,10 +42,10 @@ if not os.path.isfile(DATASET_LOCATION):
     print(f"Cannot find dataset at {DATASET_LOCATION}, please move dataset \
             here or specify dataset path")
 
-p = subprocess.Popen(["python3", "python/submission.py"], stdin=subprocess.PIPE,
+p = subprocess.Popen(["python3", "submission.py"], stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
     if not(argc > 1 and sys.argv[1] == "r") else \
-    subprocess.Popen(["Rscript", "r/submission.r"],
+    subprocess.Popen(["Rscript", "submission.r"],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
 stderr_logger_thread = multiprocessing.Process(target=log_pipe, args=(p,))
@@ -72,5 +72,5 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
 stderr_logger_thread.terminate()
 
 # Score submission
-p = subprocess.run(["python3", "src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
+p = subprocess.run(["python3", "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
 

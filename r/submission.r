@@ -1,67 +1,103 @@
 #!/usr/bin/Rscript
+source("core.r")
 
 # R submission
-# 
+#
 # Implement your model below
-# 
-# 1. Use get_next_data to receive a row of data
-# 2. Predict the value 
-
-input <- file('stdin')
-open(input, 'rb')
-
-# Receives a line of data from standard input
-#
-# Standard input is fed into your algorithm
-# ONLY after a prediction for the previous
-# row of data is received.
-get_next_data <- function() {
-  readLines(input, n=1)
-}
-
-# Prints prediction standard out
-#
-# Use this function for submitting
-# your actual prediction
-submit_prediction <- function(pred) {
-  write(pred, stdout()) 
-}
-
-# Prints to standard error
-# 
-# Use this for development / debugging
-# Output sent to standard error will not
-# be scored.
-eprint <- function(msg) {
-  write(msg, stderr())
-}
-
-### IMPLEMENT YOUR ALGORITHM BELOW ###
-# 
 # This sample algorithm naively sends 
 # 1 as the prediction for every line
 # of data
 #
-# IMPORTANT !!!
+###################################################### OVERVIEW ######################################################
 # 
-# 1. You MUST use get_next_data() and submit_prediction(pred) 
-# 	 below for your submissions to work correctly
+# 1. Use get_next_data_raw() OR get_next_data_as_list() OR get_next_data_as_dataframe() OR get_next_data_as_matrix() to receive a row of data
+# 2. Use predict method to write your predicition logic, and return a float representing your prediction
+# 3. Submit your prediction using submit_prediction
 #
-# 2. get_next_data() CANNOT be called more then once
+######################################################################################################################
+#
+################################################## OVERVIEW OF DATA ##################################################
+# 
+# 1. get_next_data_raw() accepts no input and returns a String representing a row of data extracted from data.csv
+#    Example output: [1] "1618.0,1618.5,1619.5,1620.0,1620.5,1621.0,1621.5,1622.0,1622.5,1623.0,1623.5,1624.0,1624.5,1625.0,1626.0,1.0,1.0,3.0,10.0,5.0,24.0,8.0,152.0,4.0,10.0,2.0,24.0,2.0,82.0,10.0,1615.5,1615.0,1614.5,1614.0,1613.5,1613.0,1612.5,1612.0,1611.5,1611.0,1610.5,1610.0,1609.5,1608.5,1608.0,3.0,94.0,2.0,11.0,4.0,1.0,3.0,10.0,7.0,20.0,4.0,4.0,2.0,2.0,1.0"
+#
+# 2. get_next_data_as_list() accepts no input and returns a list representing a row of data extracted from data.csv
+#    Example output:  [1] "1619.5" "1620.0" "1621.0" ""       ""       ""       ""       ""
+#                     [9] ""       ""       ""       ""       ""       ""       ""       "1.0"
+#                     [17] "10.0"   "24.0"   ""       ""       ""       ""       ""       ""
+#                     [25] ""       ""       ""       ""       ""       ""       "1615.0" "1614.0"
+#                     [33] "1613.0" "1612.0" "1611.0" "1610.0" "1607.0" "1606.0" "1605.0" "1604.0"
+#                     [41] "1603.0" "1602.0" "1601.5" "1601.0" "1600.0" "7.0"    "10.0"   "1.0"
+#                     [49] "10.0"   "20.0"   "3.0"    "20.0"   "27.0"   "11.0"   "14.0"   "35.0"
+#                     [57] "10.0"   "1.0"    "10.0"   "13.0"
+#
+# 3. get_next_data_as_dataframe() accepts no input and returns a dataframe representing a row of data extracted from data.csv
+#    Example output:       V1   V2   V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19
+#                    1 1619.5 1620 1621 NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA   1  10  24  NA
+#                      V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30  V31  V32  V33  V34  V35  V36
+#                    1  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 1615 1614 1613 1612 1611 1610
+#                      V37  V38  V39  V40  V41  V42    V43  V44  V45 V46 V47 V48 V49 V50 V51 V52
+#                    1 1607 1606 1605 1604 1603 1602 1601.5 1601 1600   7  10   1  10  20   3  20
+#                      V53 V54 V55 V56 V57 V58 V59 V60
+#                    1  27  11  14  35  10   1  10  13
+#
+# 4. get_next_data_as_matrix() accepts no input and returns a matrix representing a row of data extracted from data.csv
+#    Example output:          V1   V2   V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19
+#                    [1,] 1619.5 1620 1621 NA NA NA NA NA NA  NA  NA  NA  NA  NA  NA   1  10  24  NA
+#                         V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30  V31  V32  V33  V34  V35  V36
+#                    [1,]  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 1615 1614 1613 1612 1611 1610
+#                          V37  V38  V39  V40  V41  V42    V43  V44  V45 V46 V47 V48 V49 V50 V51 V52
+#[                   [1,] 1607 1606 1605 1604 1603 1602 1601.5 1601 1600   7  10   1  10  20   3  20
+#                         V53 V54 V55 V56 V57 V58 V59 V60
+#                    [1,]  27  11  14  35  10   1  10  13
+
+######################################################################################################################
+#
+###################################################### IMPORTANT ######################################################
+# 
+# 1. You MUST use (get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix()) and submit_prediction(pred) 
+# 	 below for your submissions to work correctly
+# 2. (get_next_data_raw(), get_next_data_as_list(), get_next_data_as_dataframe(), get_next_data_as_matrix) CANNOT be called more then once
 # 	 in a row without calling self.submit_prediction(pred).
+# 3. In order to debug by printing do NOT call the default method `print(...)`, rather call debug_print(...)
+#
+######################################################################################################################
+
+
+input <- file('stdin')
+open(input, 'rb')
+
+# Do not remove this method
+init()
+
+# get_prediction(data) expects a row of data from data.csv 
+#     as input and should return a float that represents a 
+#     prediction for the supplied row of data 
+get_prediction <- function(data) {
+  return(1)
+}
+
+debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
+
 while (TRUE) {
   tryCatch({
     
     # Read data
     # 
-    # get_next_data() MUST be used to read the next now of data
-    data <- get_next_data()
-
-    # Guess 1 every time
-    #
+    # get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix() MUST be used to read the next now of data
+   
+    #data <- get_next_data_as_dataframe()
+    #data <- get_next_data_as_list()
+    #data <- get_next_data_as_matrix()
+    data <- get_next_data_raw()
+    
+    # Write prediction logic in get_prediction(...)
+    prediction <- get_prediction(data)
+    
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
-    submit_prediction(1)
+
+    submit_prediction(prediction)
 
   }, error=function(e){quit()})
 } 
