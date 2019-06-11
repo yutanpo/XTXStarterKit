@@ -2,9 +2,9 @@ import time
 import sys
 ### Changes you make to this file will not persist to our testing servers
 
-RESULT_LOCATION = 'output.txt'
+RESULT_LOCATION = 'results/output.txt'
 DATASET_LOCATION = 'data.csv'
-SCORE_LOCATION = 'score.txt'
+SCORE_LOCATION = 'results/score.txt'
 
 argc = len(sys.argv)
 
@@ -38,7 +38,7 @@ with open(DATASET_LOCATION, 'r') as dp:
 
 r2 = 1 - err2_tally / y2_tally
 
-print("You achieved an r2 value of :{}".format(r2))
+print(f"You achieved an r2 value of {r2}.")
 
 with open(SCORE_LOCATION, 'a+') as wp:
     wp.write(str(r2))
