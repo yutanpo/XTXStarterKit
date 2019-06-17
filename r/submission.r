@@ -80,8 +80,6 @@ get_prediction <- function(data) {
 debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
 
 while (TRUE) {
-  tryCatch({
-    
     # Read data
     # 
     # get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix() MUST be used to read the next now of data
@@ -89,7 +87,7 @@ while (TRUE) {
     #data <- get_next_data_as_dataframe()
     #data <- get_next_data_as_list()
     #data <- get_next_data_as_matrix()
-    data <- get_next_data_raw()
+    data <- get_next_data_as_string()
     
     # Write prediction logic in get_prediction(...)
     prediction <- get_prediction(data)
@@ -98,6 +96,4 @@ while (TRUE) {
     # prediction for the current row of data
 
     submit_prediction(prediction)
-
-  }, error=function(e){quit()})
 } 
