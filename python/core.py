@@ -13,6 +13,7 @@ class Submission():
     def __init__(self):
         try:
             disable_print()
+            self.DATA_ROW_IN_TRANSIT = False
             self.run_submission()
         except EOFError as e:
             pass
@@ -21,7 +22,7 @@ class Submission():
         raise NotImplementedError("Please implement run_submission in your " +
                 "submission class")
 
-    def get_next_data_raw(self):
+    def get_next_data_as_string(self):
         """
         Reads input from standard input
 
@@ -29,8 +30,13 @@ class Submission():
         Input will not be supplied until output is 
         generated for the previous input
         """
+
+        if self.DATA_ROW_IN_TRANSIT:
+            raise Exception("get_next_data_as_string() can only be called once for every prediction made.")
         
-        return input()
+        data_row = input()
+        self.DATA_ROW_IN_TRANSIT = True
+        return data_row
         
     def get_next_data_as_list(self):
         """
@@ -41,6 +47,11 @@ class Submission():
         Input will not be supplied until output is 
         generated for the previous input
         """
+
+        if self.DATA_ROW_IN_TRANSIT:
+            raise Exception("get_next_data_as_list() can only be called once for every prediction made.")
+        
+
         raw_data_list = input().split(",")
     
         # replace empty spots with NaN
@@ -51,6 +62,7 @@ class Submission():
             else:
                 data_list.append(float(order))
         
+        self.DATA_ROW_IN_TRANSIT = True
         return data_list
     
     def get_next_data_as_numpy_array(self):
@@ -62,6 +74,11 @@ class Submission():
         Input will not be supplied until output is 
         generated for the previous input
         """
+
+        if self.DATA_ROW_IN_TRANSIT:
+            raise Exception("get_next_data_as_numpy_array() can only be called once for every prediction made.")
+
+        self.DATA_ROW_IN_TRANSIT = True
         return np.array(self.get_next_data_list())
     
     def submit_prediction(self, prediction):
@@ -72,6 +89,8 @@ class Submission():
         print(str(prediction))
         sys.stdout.flush()
         disable_print()
+
+        self.DATA_ROW_IN_TRANSIT = False
         
 
     def debug_print(self, msg):
