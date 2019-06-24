@@ -5,7 +5,7 @@
 The goal of this challenge is to create a program to predict stock movement based on real-market orderbook data. A dataset and some starter code has been provided to help build submissions.
 
 ## data.csv
-* A small sample of the dataset is included in this starter kit. The full dataset can be downloaded [here](https://www.google.com/search?rlz=1C5CHFA_enUS835US836&ei=FcHiXPuEOsTO5gLG-ayYBw&q=insert+file+download+link+here&oq=insert+file+download+link+here&gs_l=psy-ab.3...4342.5057..5172...0.0..0.130.481.3j2......0....1..gws-wiz.......0i71j35i39.wmmOJos0Zbs).
+* A small sample of the dataset is included in this starter kit. The full dataset can be downloaded [here](https://storage.googleapis.com/xtx-public-assets/data-training.csv.zip).
 * After downloading the dataset, it can be included in the root of the StarterKit directory, but it **should not** be included in the final submission.
 * This file contains some data to be analyzed and trained with the submitted model. 
 * The goal of the challenge is to predict the y values (the column on the far right), given the current and all past rows. 
