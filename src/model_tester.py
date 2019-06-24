@@ -4,7 +4,7 @@ This file is used to test your model.
 CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
-import time, subprocess, sys, multiprocessing, os
+import time, subprocess, sys, multiprocessing, os, platform
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -42,7 +42,15 @@ if not os.path.isfile(DATASET_LOCATION):
     print(f"Cannot find dataset at {DATASET_LOCATION}, please move dataset \
             here or specify dataset path")
 
-p = subprocess.Popen(["python3", "submission.py"], stdin=subprocess.PIPE,
+
+if platform.system() == "Windows":
+    p = subprocess.Popen(["py", "submission.py"], stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
+        if not(argc > 1 and sys.argv[1] == "r") else \
+        subprocess.Popen(["Rscript", "submission.r"],
+                stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+else:
+    p = subprocess.Popen(["python3", "submission.py"], stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
     if not(argc > 1 and sys.argv[1] == "r") else \
     subprocess.Popen(["Rscript", "submission.r"],

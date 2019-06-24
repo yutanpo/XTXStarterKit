@@ -113,15 +113,15 @@ def checkPWD():
 def virtualEnvInstallPackages():
     if platform.system() == 'Windows':
         subprocess.run(["py", "-m", "venv", "env"])
-        subprocess.run("source env/bin/activate", shell=True)
-        subprocess.run(["pip3", "install", "-r", "requirements.txt"])
+        subprocess.run(".\env\Scripts\activate", shell=True)
+        subprocess.run(["py", "-m", "pip", "install", "-r", "requirements.txt"])
     else:
         subprocess.run(["python3", "-m", "venv", "env"])
         subprocess.run("source env/bin/activate", shell=True)
         subprocess.run(["pip3", "install", "-r", "requirements.txt"])
 
 def runModelTester():
-    if platform.system == 'Windows':
+    if platform.system() == 'Windows':
         subprocess.run(["py", "../src/model_tester.py"])
     else:
         subprocess.run(["python3", "../src/model_tester.py"])
