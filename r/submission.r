@@ -80,6 +80,7 @@ get_prediction <- function(data) {
 debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
 
 while (TRUE) {
+    tryCatch({
     # Read data
     # 
     # get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix() MUST be used to read the next now of data
@@ -94,6 +95,13 @@ while (TRUE) {
     
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
-
+  
     submit_prediction(prediction)
-} 
+  }, error=function(e){
+    if (grepl("ignoring SIGPIPE signal", e)) {
+      quit()
+    } else {
+      stop(e)
+    }
+  })
+}
