@@ -44,13 +44,11 @@ if not os.path.isfile(DATASET_LOCATION):
 
 
 if platform.system() == "Windows":
-    p = subprocess.Popen(["py", "submission.py"], stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
-        if not(argc > 1 and sys.argv[1] == "r") else \
-        subprocess.Popen(["Rscript", "submission.r"],
-                stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    python_tag = "py"
 else:
-    p = subprocess.Popen(["python3", "submission.py"], stdin=subprocess.PIPE,
+    python_tag = "python3"
+
+p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
     if not(argc > 1 and sys.argv[1] == "r") else \
     subprocess.Popen(["Rscript", "submission.r"],
@@ -80,5 +78,5 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
 stderr_logger_thread.terminate()
 
 # Score submission
-p = subprocess.run(["python3", "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
+p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
 
