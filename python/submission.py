@@ -65,7 +65,7 @@ class MySubmission(Submission):
 
 			# data = self.get_next_data_as_list()
 			# data = self.get_next_data_as_numpy_array()
-			data = self.get_next_data_raw()
+			data = self.get_next_data_as_string()
 			
 			prediction = self.get_prediction(data)
 			# submit_prediction(pred) MUST be used submit your 
