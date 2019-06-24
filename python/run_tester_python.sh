@@ -123,6 +123,12 @@ function checkPWD() {
     fi
 }
 
+function virtualEnvInstallPackages() {
+    python3 -m venv env
+    source env/bin/activate
+    pip3 install -r requirements.txt
+}
+
 function runModelTester() {
     python3 ../src/model_tester.py
 }
@@ -131,7 +137,9 @@ function main() {
     printUsage
     checkPWD
     folderValidation
+    virtualEnvInstallPackages
     runModelTester
+    source deactivate
 }
 
 main
