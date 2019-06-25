@@ -76,24 +76,11 @@ class Submission():
 
         if self.DATA_ROW_IN_TRANSIT:
             raise Exception("get_next_data_as_numpy_array() can only be called once for every prediction made.")
-
-        self.DATA_ROW_IN_TRANSIT = True
         try:
             import numpy
-
-            raw_data_list = input().split(",")
-        
-            # replace empty spots with NaN
-            data_list = []
-            for order in raw_data_list:
-                if not order:
-                    data_list.append(math.nan)
-                else:
-                    data_list.append(float(order))
-
-            return numpy.array(data_list)
+            return numpy.array(self.get_data_as_list())
         except:
-            raise Exception('numpy is not installed')
+            raise Exception('The package numpy is not installed.')
     
     def submit_prediction(self, prediction):
         """
