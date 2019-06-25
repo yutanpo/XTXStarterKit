@@ -108,7 +108,7 @@ def checkPWD():
         print("[SUCCESS] script running in python directory.")
 
 def runModelTester():
-    if platform.system == 'Windows':
+    if platform.system() == 'Windows':
         subprocess.run(["py", "../src/model_tester.py", "r"])
     else:
         subprocess.run(["python3", "../src/model_tester.py", "r"])

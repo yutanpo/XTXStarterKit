@@ -1,10 +1,9 @@
 """
 This file is used to test your model.
-
 CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
-import time, subprocess, sys, multiprocessing, os, platform
+import time, subprocess, sys, multiprocessing, os, platform, socket
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -13,6 +12,7 @@ DATASET_LOCATION = os.path.join(cwd, 'data.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
 INCLUDE_Y_VALUE = False
+lines_processed = 0
 argc = len(sys.argv)
 
 
@@ -54,9 +54,6 @@ p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
     subprocess.Popen(["Rscript", "submission.r"],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-stderr_logger_thread = multiprocessing.Process(target=log_pipe, args=(p,))
-stderr_logger_thread.start()
-
 output = follow(p)
 
 with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_file:
@@ -67,16 +64,29 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         data_row = data_file.readline()
         if not data_row: # EOF
             break
-            
+        
+        lines_processed += 1
+
         if not INCLUDE_Y_VALUE:
             data_row = ','.join(data_row.split(',')[:-1]) + '\n'
 
-        p.stdin.write(str.encode(data_row))
-        p.stdin.flush()
-        result_file.write(output.__next__().decode("utf-8"))
+        try:
+            p.stdin.write(str.encode(data_row))
+            p.stdin.flush()
+        except socket.error as e:
+            print(p.stderr.read().decode("utf-8"))
+            print(str(e))
+            raise
 
-stderr_logger_thread.terminate()
+        if lines_processed % 10000 == 0:
+            print(f"Submitted a prediction for {lines_processed} data rows.")
+        
+        val = output.__next__().decode("utf-8")
+       
+        if platform.system() == "Windows":
+            result_file.write(val[:-1])
+        else:
+            result_file.write(val)
 
 # Score submission
 p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
-
