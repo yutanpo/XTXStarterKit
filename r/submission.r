@@ -3,23 +3,25 @@ source("core.r")
 
 # R submission
 #
-# Implement your model below
-# This sample algorithm naively sends 
-# 1 as the prediction for every line
-# of data
+# Implement the model below
+# This sample algorithm naively sends 1 as the prediction for every line of data
 #
 ###################################################### OVERVIEW ######################################################
 # 
-# 1. Use get_next_data_raw() OR get_next_data_as_list() OR get_next_data_as_dataframe() OR get_next_data_as_matrix() to receive a row of data
-# 2. Use predict method to write your predicition logic, and return a float representing your prediction
-# 3. Submit your prediction using submit_prediction
+# 1. Use get_next_data_raw() OR get_next_data_as_list() OR get_next_data_as_dataframe() OR get_next_data_as_matrix() to
+#    receive a row of data
+# 2. Use the predict method to write the prediction logic, and return a float representing your prediction
+# 3. Submit a prediction using submit_prediction
 #
 ######################################################################################################################
 #
 ################################################## OVERVIEW OF DATA ##################################################
 # 
 # 1. get_next_data_raw() accepts no input and returns a String representing a row of data extracted from data.csv
-#    Example output: [1] "1618.0,1618.5,1619.5,1620.0,1620.5,1621.0,1621.5,1622.0,1622.5,1623.0,1623.5,1624.0,1624.5,1625.0,1626.0,1.0,1.0,3.0,10.0,5.0,24.0,8.0,152.0,4.0,10.0,2.0,24.0,2.0,82.0,10.0,1615.5,1615.0,1614.5,1614.0,1613.5,1613.0,1612.5,1612.0,1611.5,1611.0,1610.5,1610.0,1609.5,1608.5,1608.0,3.0,94.0,2.0,11.0,4.0,1.0,3.0,10.0,7.0,20.0,4.0,4.0,2.0,2.0,1.0"
+#    Example output: [1] "1618.0,1618.5,1619.5,1620.0,1620.5,1621.0,1621.5,1622.0,1622.5,1623.0,1623.5,1624.0,1624.5
+#                         1625.0,1626.0,1.0,1.0,3.0,10.0,5.0,24.0,8.0,152.0,4.0,10.0,2.0,24.0,2.0,82.0,10.0,1615.5,
+#                         1615.0,1614.5,1614.0,1613.5,1613.0,1612.5,1612.0,1611.5,1611.0,1610.5,1610.0,1609.5,1608.5,
+#                         1608.0,3.0,94.0,2.0,11.0,4.0,1.0,3.0,10.0,7.0,20.0,4.0,4.0,2.0,2.0,1.0"
 #
 # 2. get_next_data_as_list() accepts no input and returns a list representing a row of data extracted from data.csv
 #    Example output:  [1] "1619.5" "1620.0" "1621.0" ""       ""       ""       ""       ""
@@ -55,10 +57,10 @@ source("core.r")
 #
 ###################################################### IMPORTANT ######################################################
 # 
-# 1. You MUST use (get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix()) and submit_prediction(pred) 
-# 	 below for your submissions to work correctly
-# 2. (get_next_data_raw(), get_next_data_as_list(), get_next_data_as_dataframe(), get_next_data_as_matrix) CANNOT be called more then once
-# 	 in a row without calling self.submit_prediction(pred).
+# 1. One of the methods get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() MUST be used and
+#    _prediction(pred) MUST be used to submit below in the solution implementation for the submission to work correctly.
+# 2. get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() CANNOT be called more then once in
+#    a row without calling self.submit_prediction(pred).
 # 3. In order to debug by printing do NOT call the default method `print(...)`, rather call debug_print(...)
 #
 ######################################################################################################################
@@ -70,8 +72,7 @@ open(input, 'rb')
 # Do not remove this method
 init()
 
-# get_prediction(data) expects a row of data from data.csv 
-#     as input and should return a float that represents a 
+# get_prediction(data) expects a row of data from data.csv as input and should return a float that represents a
 #     prediction for the supplied row of data 
 get_prediction <- function(data) {
   return(1)
@@ -80,9 +81,10 @@ get_prediction <- function(data) {
 debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
 
 while (TRUE) {
-    # Read data
-    # 
-    # get_next_data_raw() or get_next_data_as_list() or get_next_data_as_dataframe() or get_next_data_as_matrix() MUST be used to read the next now of data
+    # NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
+	#		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
+	#
+	#		Uncomment the one that will be used, and comment the others.
    
     #data <- get_next_data_as_dataframe()
     #data <- get_next_data_as_list()
