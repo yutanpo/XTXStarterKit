@@ -87,12 +87,12 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         if lines_processed % 10000 == 0:
             print(f"Submitted a prediction for {lines_processed} data rows.")
         
-        val = output.__next__().decode("utf-8")
+        pred = output.__next__().decode("utf-8")
        
         if platform.system() == "Windows":
-            result_file.write(val[:-1])
+            result_file.write(pred[:-1])
         else:
-            result_file.write(val)
+            result_file.write(pred)
 
 # Score submission
 p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
