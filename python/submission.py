@@ -52,36 +52,36 @@ class MySubmission(Submission):
     get_prediction(data) expects a row of data from data.csv as input and should return a float that represents a
        prediction for the supplied row of data
     """
-	def get_prediction(self, data):
-		return 1.0
+    def get_prediction(self, data):
+        return 1.0
 
-	"""
+    """
     run_submission() will iteratively fetch the next row of data in the format 
        specified (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array)
        for every prediction submitted to self.submit_prediction()
     """
-	def run_submission(self):
+    def run_submission(self):
 
-		self.debug_print("Use the print function `self.debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
+        self.debug_print("Use the print function `self.debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
 
-		while(True):
-			"""
-			NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
-			to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
-			
-			Uncomment the one that will be used, and comment the others.
-			"""
+        while(True):
+            """
+            NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
+            to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
 
-			# data = self.get_next_data_as_list()
-			# data = self.get_next_data_as_numpy_array()
-			data = self.get_next_data_as_string()
-			
-			prediction = self.get_prediction(data)
+            Uncomment the one that will be used, and comment the others.
+            """
 
-			"""
-			submit_prediction(prediction) MUST be used to submit your prediction for the current row of data
-			"""
-			self.submit_prediction(prediction)
+            # data = self.get_next_data_as_list()
+            # data = self.get_next_data_as_numpy_array()
+            data = self.get_next_data_as_string()
+
+            prediction = self.get_prediction(data)
+
+            """
+            submit_prediction(prediction) MUST be used to submit your prediction for the current row of data
+            """
+            self.submit_prediction(prediction)
 
 
 if __name__ == "__main__":
