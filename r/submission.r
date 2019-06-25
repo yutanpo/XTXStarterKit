@@ -81,10 +81,11 @@ get_prediction <- function(data) {
 debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
 
 while (TRUE) {
+    tryCatch({
     # NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
-	#		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
-	#
-	#		Uncomment the one that will be used, and comment the others.
+	  #		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
+	  #
+	  #		Uncomment the one that will be used, and comment the others.
    
     #data <- get_next_data_as_dataframe()
     #data <- get_next_data_as_list()
@@ -96,6 +97,13 @@ while (TRUE) {
     
     # submit_prediction(pred) MUST be used submit your 
     # prediction for the current row of data
-
+  
     submit_prediction(prediction)
-} 
+  }, error=function(e){
+    if (grepl("ignoring SIGPIPE signal", e)) {
+      quit()
+    } else {
+      stop(e)
+    }
+  })
+}
