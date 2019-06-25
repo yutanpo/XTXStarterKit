@@ -76,6 +76,7 @@ class Submission():
 
         if self.DATA_ROW_IN_TRANSIT:
             raise Exception("get_next_data_as_numpy_array() can only be called once for every prediction made.")
+
         self.DATA_ROW_IN_TRANSIT = True
         try:
             import numpy
