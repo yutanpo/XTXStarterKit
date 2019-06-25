@@ -85,7 +85,11 @@ enable_print <- function() {
 }
 
 disable_print <- function() {
-  sink("/dev/null")
+  if (Sys.info()["sysname"] == "Windows") {
+    sink("NUL")
+  } else {
+    sink("/dev/null")
+  }
 }
 
 init <- function() {
