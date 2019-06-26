@@ -9,7 +9,6 @@ import time, subprocess, sys, multiprocessing, os, platform, socket
 cwd = os.path.split(os.getcwd())[0]
 RESULT_LOCATION = os.path.join(cwd, 'results/result.txt')
 DATASET_LOCATION = os.path.join(cwd, 'data.csv')
-FULL_DATASET_LOCATION = os.path.join(cwd, 'data_training.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
 INCLUDE_Y_VALUE = False
@@ -39,10 +38,6 @@ def __create_dir(filepath):
 
 __create_dir(RESULT_LOCATION)
 __create_dir(SCORE_LOCATION)
-
-
-if not os.path.isfile(FULL_DATASET_LOCATION):
-    print(f"Could not find full training dataset, please see README.md to download the entire dataset.")
 
 if not os.path.isfile(DATASET_LOCATION):
     print(f"Cannot find dataset at {DATASET_LOCATION}, please move dataset \
