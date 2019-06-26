@@ -1,6 +1,10 @@
 import sys, os, math
 
-save_stdout = sys.stdout
+class GetNextDataCalledTwiceException(Exception):
+    pass
+
+class NotInstalledPackageException(Exception):
+    pass
 
 def enable_print():
     sys.stdout = sys.__stdout__
@@ -31,7 +35,7 @@ class Submission():
         """
 
         if self.DATA_ROW_IN_TRANSIT:
-            raise Exception("get_next_data_as_string() can only be called once for every prediction made.")
+            raise GetNextDataCalledTwiceException("get_next_data_as_string() can only be called once for every prediction made.")
         
         data_row = input()
         self.DATA_ROW_IN_TRANSIT = True
@@ -48,7 +52,7 @@ class Submission():
         """
 
         if self.DATA_ROW_IN_TRANSIT:
-            raise Exception("get_next_data_as_list() can only be called once for every prediction made.")
+            raise GetNextDataCalledTwiceException("get_next_data_as_list() can only be called once for every prediction made.")
         
 
         raw_data_list = input().split(",")
@@ -75,12 +79,12 @@ class Submission():
         """
 
         if self.DATA_ROW_IN_TRANSIT:
-            raise Exception("get_next_data_as_numpy_array() can only be called once for every prediction made.")
+            raise GetNextDataCalledTwiceException("get_next_data_as_numpy_array() can only be called once for every prediction made.")
         try:
             import numpy
             return numpy.array(self.get_data_as_list())
         except:
-            raise Exception('The package numpy is not installed.')
+            raise NotInstalledPackageException('The package numpy is not installed.')
     
     def submit_prediction(self, prediction):
         """
