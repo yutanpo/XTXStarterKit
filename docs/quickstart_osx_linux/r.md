@@ -1,4 +1,4 @@
-### R
+### R Quickstart (OSX and Linux)
 
 NOTE: we expect you to have Python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
 
@@ -14,7 +14,7 @@ Place required R packages in the `requirements.txt` file. These packages will be
 
 With that being said, our testing script `run_tester_r.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally. 
 
-## Quickstart (macOS and Linux)
+## OSX & Linux
 
 At all phases of the development process it is highly recommended to run `python3 run_tester_r.py` from within the `r` directory.
 
