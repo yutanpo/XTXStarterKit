@@ -23,14 +23,14 @@ If your submission is not able to run with `py run_tester_r.py` it will NOT run 
 This script will ensure that the submission folder satisfies:
 
 |--README.md<br />
---|-- r<br />
------|-- core.r<br />
------|-- requirements.txt<br />
------|-- submission.r<br />
---|-- src<br />
------|-- model_tester.py<br />
------|-- scorer.py<br />
---|-- data.csv<br />
+|-- r<br />
+---|-- core.r<br />
+---|-- requirements.txt<br />
+---|-- submission.r<br />
+|-- src<br />
+---|-- model_tester.py<br />
+---|-- scorer.py<br />
+|-- data.csv<br />
 
 The script `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
 

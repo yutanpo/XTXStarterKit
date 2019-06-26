@@ -17,15 +17,15 @@ If your submission is not able to run with `py run_tester_python.py`, it will NO
 This script will ensure that the submission folder satisfies:  
 
 |--README.md<br />
---|-- python<br />
------|-- core.py<br />
------|-- requirements.txt<br />
------|-- run_tester_python.sh<br />
------|-- submission.py<br />
---|-- src<br />
------|-- model_tester.py<br />
------|-- scorer.py<br />
---|-- data.csv<br />
+|-- python<br />
+---|-- core.py<br />
+---|-- requirements.txt<br />
+---|-- run_tester_python.sh<br />
+---|-- submission.py<br />
+|-- src<br />
+---|-- model_tester.py<br />
+---|-- scorer.py<br />
+|-- data.csv<br />
 
 The script `py run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
