@@ -60,7 +60,7 @@ At all phases of the development process it is highly recommended to run `py run
 
 If your submission is not able to run with `py run_tester_python.py`, it will NOT run on our platform.
 
-This script will ensure that submission folder is in accordance with:  
+This script will ensure that the submission folder satisfies:  
 
 |--README.md
 |-- python
@@ -104,7 +104,7 @@ At all phases of the development process it is highly recommended to run `python
 
 If your submission is not able to run with `python3 run_tester_python.py`, it will NOT run on our platform.
 
-This script will ensure that submission folder is in accordance with:  
+This script will ensure that the submission folder satisfies:  
 
 |--README.md
 |-- python
@@ -146,7 +146,7 @@ At all phases of the development process it is highly recommended to run `py run
 
 If your submission is not able to run with `py run_tester_r.py` it will NOT run on our platform.
 
-This script will ensure that submission folder is in accordance with:
+This script will ensure that the submission folder satisfies:
 
 |--README.md
 |-- r
@@ -169,7 +169,7 @@ At all phases of the development process it is highly recommended to run `python
 
 If your submission is not able to run with `python3 run_tester_r.py` it will NOT run on our platform.
 
-This script will ensure that submission folder is in accordance with:
+This script will ensure that the submission folder satisfies:
 
 |--README.md
 |-- r
