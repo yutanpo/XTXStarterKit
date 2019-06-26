@@ -8,8 +8,8 @@ The goal of this challenge is to create a program to predict stock movement base
 * A small sample of the dataset is included in this starter kit. The full dataset `data-training.csv` can be downloaded [here](https://storage.googleapis.com/xtx-public-assets/data-training.csv.zip).
 * After downloading the dataset, it can be included in the root of the StarterKit directory, but it **should not** be included in the final submission.
 * This file contains some data to be analyzed and trained with the submitted model. 
-* The goal of the challenge is to predict the y values (the column on the far right), given the current and all past rows. 
-* The submitted model will be tested on data which is similar to `data.csv`; however it will not contain the y column.
+* The goal of the challenge is to predict the `y` values (the column on the far right), given the current and all past rows. 
+* The submitted model will be tested on data which is similar to `data.csv`; however it will not contain the `y` column.
 
 ### StarterKit Folder Structure
 
@@ -37,7 +37,7 @@ submission. For example, if the language used in a submission is `python`, the `
 ### The `src` folder
 
 **None of these files require changing**; however, there are a couple of files in this folder that are quite important to know.
-**Please refrain from trying to run these files manually**; there is a script in the python and R folders that runs the model_tester and scorer
+**Please refrain from trying to run these files manually**; there is a script in the `python` and `R` folders that runs the model_tester and scorer.
 
 ## `src/model_tester.py`
 * A prediction vector will be outputted at the value of `RESULT_LOCATION`.
@@ -58,14 +58,14 @@ This folder should be removed if the solution is written in `R`.
 * This file contains the `Submission` class, all code to interact with `src/model_tester.py`
 
 ##### `python/submission.py`
-* This file should be used if the solution is written in Python.
+* This file should be used if the solution is written in `python`.
 * This file contains the starter code for the submission program.
 * This extends the `Submission` class found in `core.py`.
 * The function `self.get_next_data()` **must** be used to read a line of data.
-* The function `self.submit_prediction(pred)` **must** be used to submit a prediction for the y value of the next row of data.
+* The function `self.submit_prediction(pred)` **must** be used to submit a prediction for the `y` value of the next row of data.
 * **`self.get_next_data()` cannot be called two or more times in a row without calling `self.submit_prediction(pred)`**.
 * Messages should not be printed to stdout because `model_tester.py` will be looking for predictions from stdout.
-* To debug, messages should be printed to stderr.
+* To debug, messages should be printed to `stderr`.
 
 ##### `python/requirements.txt`
 * **Any packages or dependencies necessary for the submission should be added here.**
@@ -76,16 +76,16 @@ This folder should be removed if the solution is written in `R`.
 This folder should be removed if the solution is written in `python`.
 
 ##### `r.submission.r`
-* This file should be used if the solution is written in R.
+* This file should be used if the solution is written in `R`.
 * This file contains the starter code for the submission program.
 * The function `get_next_data()` **must** be used to read a line of data.
-* The function `submit_prediction(pred)` **must** be used to submit a prediction for the y value of the next row of data.
+* The function `submit_prediction(pred)` **must** be used to submit a prediction for the `y` value of the next row of data.
 * **`get_next_data()` cannot be called two or more times in a row without calling `submit_prediction(pred)`**.
 * Messages should not be printed to stdout because `model_tester.py` will be looking for predictions from stdout.
 * To debug, messages should be printed to stderr.
 
 ##### `r/requirements.txt`
-* **Any packages or dependencies necessary for the R submission should be added here.**
+* **Any packages or dependencies necessary for the `R` submission should be added here.**
 * These will be installed at runtime.
 
 ### Submission Instructions
@@ -93,4 +93,4 @@ This folder should be removed if the solution is written in `python`.
 #### For Python submissions
 
 * Follow the steps in [docs/submissions/python.md](docs/submissions/python.md) to upload a Python submission.
-* Follow the steps in [docs/submissions/r.md](docs/submissions/r.md) to upload a R submission.
+* Follow the steps in [docs/submissions/r.md](docs/submissions/r.md) to upload a `R` submission.
