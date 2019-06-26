@@ -122,9 +122,9 @@ The result & score can be found in the results folder that will be created upon 
 
 ### R
 
-NOTE: we expect you to have python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
+NOTE: we expect you to have Python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
 
-Please install Python 3 from [here](https://www.python.org/downloads/release/python-373/).
+Requirements: Python 3.6 or higher
 
 Also ensure that R is installed on your machine. Installation information can be found [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/)
 
