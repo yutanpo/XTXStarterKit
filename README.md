@@ -24,15 +24,15 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ## OSX and Linux
 
-* For **Python** submissions on `OSX` or `Linux` see the docs under [a relative link](docs/quickstart_osx_linux/python.md).
-* For **R** submissions on `OSX` or `Linux` see the docs under [a relative link](docs/quickstart_osx_linux/r.md).
-* We **highly** recommend using a virtual environment for Python development: [a relative link](docs/quickstart_osx_linux/virtual_env.md).
+* For **Python** submissions on `OSX` or `Linux` see the docs under [docs/quickstart_osx_linux/python.md](docs/quickstart_osx_linux/python.md).
+* For **R** submissions on `OSX` or `Linux` see the docs under [docs/quickstart_osx_linux/r.md](docs/quickstart_osx_linux/r.md).
+* We **highly** recommend using a virtual environment for Python development: [docs/quickstart_osx_linux/virtual_env.md](docs/quickstart_osx_linux/virtual_env.md).
 
 ## Windows
 
-* For **Python** submissions on `Windows` see the docs under [a relative link](docs/quickstart_windows/python.md).
-* For **R** submissions on `R` see the docs under [a relative link](docs/quickstart_windows/r.md).
-* We **highly** recommend using a virtual environment for Python development: [a relative link](docs/quickstart_windows/virtual_env.md)
+* For **Python** submissions on `Windows` see the docs under [docs/quickstart_windows/python.md](docs/quickstart_windows/python.md).
+* For **R** submissions on `R` see the docs under [docs/quickstart_windows/r.md](docs/quickstart_windows/r.md).
+* We **highly** recommend using a virtual environment for Python development: [docs/quickstart_windows/virtual_env.md](docs/quickstart_windows/virtual_env.md)
 
 ### The `src` folder
 
@@ -94,5 +94,5 @@ This folder should be removed if the solution is written in `python`.
 
 #### For Python submissions
 
-* Follow the steps in [a relative link](docs/submissions/python.md) to upload a Python submission.
-* Follow the steps in [a relative link](docs/submissions/r.md) to upload a R submission.
+* Follow the steps in [docs/submissions/python.md](docs/submissions/python.md) to upload a Python submission.
+* Follow the steps in [docs/submissions/r.md](docs/submissions/r.md) to upload a R submission.
