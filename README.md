@@ -22,94 +22,164 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ### Quickstart
 
-### Python
+## Python
 
-Ensure that all development is being done within the `python` folder. 
+Install Python 3 from [here](https://www.python.org/downloads/release/python-373/)
+
+Ensure that all development is being done within the `python` folder.
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`. 
 
-At all phases of the development process it is highly recommended to run `./run_tester_python.sh` from within the `python` directory.
+## Windows
 
-If your submission is not able to run with `./run_tester_python.sh` it will NOT run on our platform.
+## Setting up a virtual environment & installing requirements.txt packages
+
+We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
+
+The main purpose of Python virtual environments is to create an isolated environment for Python projects.
+
+Run the following commands from within the `python` directory to setup a Python virtual environment:
+
+# install virtualenv
+$ py -m pip install --user virtualenv
+
+# creating a virtual environment
+$ py -m venv env
+
+# activating a virtual environment
+$ .\env\Scripts\activate
+
+# install packages from requirements.txt
+$ py -m pip install -r requirements.txt
+
+At all phases of the development process it is highly recommended to run `py run_tester_python.py` from within the `python` directory.
+
+If your submission is not able to run with `py run_tester_python.py`, it will NOT run on our platform.
 
 This script will ensure that submission folder is in accordance with:  
 
+We highly recommend setting up a virtual environemnt for Python development. 
+
 |--README.md
 |-- python
    |-- core.py
    |-- requirements.txt
    |-- run_tester_python.sh
    |-- submission.py
-|-- r
-   |-- requirements.txt
-   |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+
+Additionally, `py run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
+
+The result & score can be found in the results folder that will be created upon successfully running `py run_tester_python.py`.
+
+
+## macOS and Linux
+
+## Setting up a virtual environment & installing requirements.txt packages
+
+We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
+
+The main purpose of Python virtual environments is to create an isolated environment for Python projects.
+
+Run the following commands from within the `python` directory to setup a Python virtual environment:
+
+# install virtualenv
+$ python3 -m pip install --user virtualenv
+
+# creating a virtual environment
+$ python3 -m venv env
+
+# activating a virtual environment
+$ source env/bin/activate
+
+# install packages from requirements.txt
+$ pip3 install -r requirements.txt
+
+At all phases of the development process it is highly recommended to run `python3 run_tester_python.py` from within the `python` directory.
+
+If your submission is not able to run with `python3 run_tester_python.py`, it will NOT run on our platform.
+
+This script will ensure that submission folder is in accordance with:  
+
+We highly recommend setting up a virtual environemnt for Python development. 
+
 |--README.md
 |-- python
    |-- core.py
    |-- requirements.txt
    |-- run_tester_python.sh
    |-- submission.py
-|-- r
-   |-- requirements.txt
-   |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
 
+Additionally, `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
-Additionally, `./run_tester_python.sh` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `./run_tester_python.sh`.
+The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_python.py`.
 
 ### R
+
+NOTE: we expect you to have python 3 installed in order to run `run_tester_r.py`. 
+
+Please install Python 3 from [here](https://www.python.org/downloads/release/python-373/).
+
+Also ensure that R is installed on your machine. Installation information can be found [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/)
+
+We require your system to be able to run `Rscript` commands.
 
 Ensure that all development is being done within the `r` folder. 
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `r`. 
 
-At all phases of the development process it is highly recommended to run `./run_tester_r.sh` from within the `r` directory.
+## Windows
 
-If your submission is not able to run with `./run_tester_r.sh` it will NOT run on our platform.
+At all phases of the development process it is highly recommended to run `py run_tester_r.py` from within the `r` directory.
 
-This script will ensure that submission folder is in accordance with:  
+If your submission is not able to run with `py run_tester_r.py` it will NOT run on our platform.
+
+This script will ensure that submission folder is in accordance with:
 
 |--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
 |-- r
+   |-- core.r
    |-- requirements.txt
    |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
+
+Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
+
+The result & score can be found in the results folder that will be created upon successfully running `py run_tester_r.py`.
+
+## macOS and Linux
+
+At all phases of the development process it is highly recommended to run `python3 run_tester_r.py` from within the `r` directory.
+
+If your submission is not able to run with `python3 run_tester_r.py` it will NOT run on our platform.
+
+This script will ensure that submission folder is in accordance with:
+
 |--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
 |-- r
+   |-- core.r
    |-- requirements.txt
    |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
 
+Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
 
-Additionally, `./run_tester_r.sh` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `./run_tester_r.sh`.
-
+The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_r.py`.
 
 ### The `src` folder
 
