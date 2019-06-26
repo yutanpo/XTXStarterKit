@@ -14,7 +14,7 @@ Place required R packages in the `requirements.txt` file. These packages will be
 
 With that being said, our testing script `run_tester_r.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally. 
 
-## OSX & Linux
+#### OSX & Linux
 
 At all phases of the development process it is highly recommended to run `python3 run_tester_r.py` from within the `r` directory.
 
