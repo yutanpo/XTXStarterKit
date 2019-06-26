@@ -24,7 +24,6 @@ This script will ensure that the submission folder satisfies:
 *    |-- model_tester.py
 *    |-- scorer.py
 * |-- data.csv
-* |-- data-training.csv
 
 * This script `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 

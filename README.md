@@ -9,7 +9,7 @@ The goal of this challenge is to create a program to predict stock movement base
 * After downloading the dataset, it can be included in the root of the StarterKit directory, but it **should not** be included in the final submission.
 * This file contains some data to be analyzed and trained with the submitted model. 
 * The goal of the challenge is to predict the y values (the column on the far right), given the current and all past rows. 
-* The submitted model will be tested on data which is similar to `data.csv` and `data-training.csv`; however it will not contain the y column.
+* The submitted model will be tested on data which is similar to `data.csv`; however it will not contain the y column.
 
 ### StarterKit Folder Structure
 
