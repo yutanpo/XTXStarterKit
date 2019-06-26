@@ -25,6 +25,6 @@ This script will ensure that the submission folder satisfies:
 -----|-- scorer.py<br />
 --|-- data.csv<br />
 
-* This script `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
+This script `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
-* The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_python.py`.
+The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_python.py`.
