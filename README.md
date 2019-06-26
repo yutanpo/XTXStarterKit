@@ -130,8 +130,6 @@ Also ensure that R is installed on your machine. Installation information can be
 
 We require your system to be able to run `Rscript` commands.
 
-Ensure that all development is being done within the `r` folder. 
-
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `r`. 
 
 Place required R packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment. 
