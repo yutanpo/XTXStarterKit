@@ -2,7 +2,7 @@
 
 Requirements: Python 3.6 or higher
 
-Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
+Files that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
 
 Place required Python packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment.
 
