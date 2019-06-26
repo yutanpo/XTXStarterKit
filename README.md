@@ -94,5 +94,5 @@ This folder should be removed if the solution is written in `python`.
 
 #### For Python submissions
 
-* Follow the steps in [a relative link](docs/submissions/python.md) ` to upload a Python submission.
+* Follow the steps in [a relative link](docs/submissions/python.md) to upload a Python submission.
 * Follow the steps in [a relative link](docs/submissions/r.md) to upload a R submission.
