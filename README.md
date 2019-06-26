@@ -24,9 +24,7 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ### Python
 
-Install Python 3 from [here](https://www.python.org/downloads/release/python-373/)
-
-Ensure that all development is being done within the `python` folder.
+Requirements: Python 3.6 or higher
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
 
@@ -247,9 +245,6 @@ This folder should be removed if the solution is written in `python`.
 
 #### For Python submissions
 
-Before submitting, it is highly recommended to run `./run_tester_python.sh` from within the `python` directory
-A submission that doesn't work with `./run_tester_python.sh` will get rejected
-
 Follow these steps to upload a python submission:
 
 ##### Step 1
@@ -267,9 +262,6 @@ Zip the whole directory (i.e. `python.zip`)
 Upload this .zip file on the challenge submission page.
 
 #### For R submissions
-
-Before submitting, it is highly recommended to run `./run_tester_r.sh` from within the `r` directory
-A submission that doesn't work with `./run_tester_r.sh` will get rejected
 
 Follow these steps to upload an r submission:
 
