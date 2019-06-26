@@ -14,16 +14,16 @@ If your submission is not able to run with `python3 run_tester_python.py`, it wi
 
 This script will ensure that the submission folder satisfies:  
 
-* |--README.md
-* |-- python
-*    |-- core.py
-*    |-- requirements.txt
-*    |-- run_tester_python.sh
-*    |-- submission.py
-* |-- src
-*    |-- model_tester.py
-*    |-- scorer.py
-* |-- data.csv
+|--README.md \
+--|-- python \ 
+-----|-- core.py \
+-----|-- requirements.txt \
+-----|-- run_tester_python.sh \
+-----|-- submission.py \
+--|-- src \
+-----|-- model_tester.py \
+-----|-- scorer.py \
+--|-- data.csv \
 
 * This script `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
