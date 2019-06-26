@@ -24,15 +24,41 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ### Python
 
-Ensure that all development is being done within the `python` folder. 
+Requirements: Python 3.6 or higher
 
-Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`. 
+Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
 
-At all phases of the development process it is highly recommended to run `./run_tester_python.sh` from within the `python` directory.
+Place required Python packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment.
 
-If your submission is not able to run with `./run_tester_python.sh` it will NOT run on our platform.
+With that being said, our testing script `run_tester_python.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally.
 
-This script will ensure that submission folder is in accordance with:  
+### Windows
+
+## Setting up a virtual environment & installing requirements.txt packages
+
+We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
+
+The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
+
+Run the following commands from within the `python` directory to setup a Python virtual environment:
+
+# install virtualenv
+$ py -m pip install --user virtualenv
+
+# creating a virtual environment
+$ py -m venv env
+
+# activating a virtual environment
+$ .\env\Scripts\activate
+
+# install packages from requirements.txt
+$ py -m pip install -r requirements.txt
+
+At all phases of the development process it is highly recommended to run `py run_tester_python.py` from within the `python` directory.
+
+If your submission is not able to run with `py run_tester_python.py`, it will NOT run on our platform.
+
+This script will ensure that the submission folder satisfies:  
 
 |--README.md
 |-- python
@@ -40,76 +66,121 @@ This script will ensure that submission folder is in accordance with:
    |-- requirements.txt
    |-- run_tester_python.sh
    |-- submission.py
-|-- r
-   |-- requirements.txt
-   |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
+
+Additionally, `py run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
+
+The result & score can be found in the results folder that will be created upon successfully running `py run_tester_python.py`.
+
+### macOS and Linux
+
+## Setting up a virtual environment & installing requirements.txt packages
+
+We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
+
+The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
+
+Run the following commands from within the `python` directory to setup a Python virtual environment:
+
+# install virtualenv
+$ python3 -m pip install --user virtualenv
+
+# creating a virtual environment
+$ python3 -m venv env
+
+# activating a virtual environment
+$ source env/bin/activate
+
+# install packages from requirements.txt
+$ pip3 install -r requirements.txt
+
+At all phases of the development process it is highly recommended to run `python3 run_tester_python.py` from within the `python` directory.
+
+If your submission is not able to run with `python3 run_tester_python.py`, it will NOT run on our platform.
+
+This script will ensure that the submission folder satisfies:  
+
 |--README.md
 |-- python
    |-- core.py
    |-- requirements.txt
    |-- run_tester_python.sh
    |-- submission.py
-|-- r
-   |-- requirements.txt
-   |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
 
+Additionally, `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
-Additionally, `./run_tester_python.sh` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `./run_tester_python.sh`.
+The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_python.py`.
 
 ### R
 
-Ensure that all development is being done within the `r` folder. 
+NOTE: we expect you to have Python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
+
+Requirements: Python 3.6 or higher
+
+Also ensure that R is installed on your machine. Installation information can be found [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/)
+
+We require your system to be able to run `Rscript` commands.
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `r`. 
 
-At all phases of the development process it is highly recommended to run `./run_tester_r.sh` from within the `r` directory.
+Place required R packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment. 
 
-If your submission is not able to run with `./run_tester_r.sh` it will NOT run on our platform.
+With that being said, our testing script `run_tester_r.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally. 
 
-This script will ensure that submission folder is in accordance with:  
+## Windows
+
+At all phases of the development process it is highly recommended to run `py run_tester_r.py` from within the `r` directory.
+
+If your submission is not able to run with `py run_tester_r.py` it will NOT run on our platform.
+
+This script will ensure that the submission folder satisfies:
 
 |--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
 |-- r
+   |-- core.r
    |-- requirements.txt
    |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
+
+Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
+
+The result & score can be found in the results folder that will be created upon successfully running `py run_tester_r.py`.
+
+## macOS and Linux
+
+At all phases of the development process it is highly recommended to run `python3 run_tester_r.py` from within the `r` directory.
+
+If your submission is not able to run with `python3 run_tester_r.py` it will NOT run on our platform.
+
+This script will ensure that the submission folder satisfies:
+
 |--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
 |-- r
+   |-- core.r
    |-- requirements.txt
    |-- submission.r
 |-- src
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
 
+Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
 
-Additionally, `./run_tester_r.sh` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `./run_tester_r.sh`.
-
+The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_r.py`.
 
 ### The `src` folder
 
@@ -165,15 +236,12 @@ This folder should be removed if the solution is written in `python`.
 * To debug, messages should be printed to stderr.
 
 ##### `r/requirements.txt`
-* **Any packages or dependencies necessary for the submission should be added here.**
+* **Any packages or dependencies necessary for the R submission should be added here.**
 * These will be installed at runtime.
 
 ### Submission Instructions
 
 #### For Python submissions
-
-Before submitting, it is highly recommended to run `./run_tester_python.sh` from within the `python` directory
-A submission that doesn't work with `./run_tester_python.sh` will get rejected
 
 Follow these steps to upload a python submission:
 
@@ -192,9 +260,6 @@ Zip the whole directory (i.e. `python.zip`)
 Upload this .zip file on the challenge submission page.
 
 #### For R submissions
-
-Before submitting, it is highly recommended to run `./run_tester_r.sh` from within the `r` directory
-A submission that doesn't work with `./run_tester_r.sh` will get rejected
 
 Follow these steps to upload an r submission:
 
