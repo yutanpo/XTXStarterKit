@@ -1,15 +1,15 @@
-# XTX Markets Forecasting Challenge
+# XTX Markets Forecasting Challenge StarterKit
 
 ## Instructions
 
 The goal of this challenge is to create a program to predict stock movement based on real-market orderbook data. A dataset and some starter code has been provided to help build submissions.
 
 ## data.csv
-* A small sample of the dataset is included in this starter kit. The full dataset can be downloaded [here](https://storage.googleapis.com/xtx-public-assets/data-training.csv.zip).
+* A small sample of the dataset is included in this starter kit. The full dataset `data-training.csv` can be downloaded [here](https://storage.googleapis.com/xtx-public-assets/data-training.csv.zip).
 * After downloading the dataset, it can be included in the root of the StarterKit directory, but it **should not** be included in the final submission.
 * This file contains some data to be analyzed and trained with the submitted model. 
 * The goal of the challenge is to predict the y values (the column on the far right), given the current and all past rows. 
-* The submitted model will be tested on data which is similar to `data.csv`; however it will not contain the y column.
+* The submitted model will be tested on data which is similar to `data.csv` and `data-training.csv`; however it will not contain the y column.
 
 ### StarterKit Folder Structure
 
@@ -22,165 +22,17 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ### Quickstart
 
-### Python
+## OSX and Linux
 
-Requirements: Python 3.6 or higher
-
-Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
-
-Place required Python packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment.
-
-With that being said, our testing script `run_tester_python.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally.
-
-### Windows
-
-## Setting up a virtual environment & installing requirements.txt packages
-
-We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
-
-The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
-
-Run the following commands from within the `python` directory to setup a Python virtual environment:
-
-# install virtualenv
-$ py -m pip install --user virtualenv
-
-# creating a virtual environment
-$ py -m venv env
-
-# activating a virtual environment
-$ .\env\Scripts\activate
-
-# install packages from requirements.txt
-$ py -m pip install -r requirements.txt
-
-At all phases of the development process it is highly recommended to run `py run_tester_python.py` from within the `python` directory.
-
-If your submission is not able to run with `py run_tester_python.py`, it will NOT run on our platform.
-
-This script will ensure that the submission folder satisfies:  
-
-|--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
-|-- src
-   |-- model_tester.py
-   |-- scorer.py
-|-- data.csv
-|-- data-training.csv
-
-Additionally, `py run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `py run_tester_python.py`.
-
-### macOS and Linux
-
-## Setting up a virtual environment & installing requirements.txt packages
-
-We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
-
-The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
-
-Run the following commands from within the `python` directory to setup a Python virtual environment:
-
-# install virtualenv
-$ python3 -m pip install --user virtualenv
-
-# creating a virtual environment
-$ python3 -m venv env
-
-# activating a virtual environment
-$ source env/bin/activate
-
-# install packages from requirements.txt
-$ pip3 install -r requirements.txt
-
-At all phases of the development process it is highly recommended to run `python3 run_tester_python.py` from within the `python` directory.
-
-If your submission is not able to run with `python3 run_tester_python.py`, it will NOT run on our platform.
-
-This script will ensure that the submission folder satisfies:  
-
-|--README.md
-|-- python
-   |-- core.py
-   |-- requirements.txt
-   |-- run_tester_python.sh
-   |-- submission.py
-|-- src
-   |-- model_tester.py
-   |-- scorer.py
-|-- data.csv
-|-- data-training.csv
-
-Additionally, `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_python.py`.
-
-### R
-
-NOTE: we expect you to have Python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
-
-Requirements: Python 3.6 or higher
-
-Also ensure that R is installed on your machine. Installation information can be found [here](https://www.andrewheiss.com/blog/2012/04/17/install-r-rstudio-r-commander-windows-osx/)
-
-We require your system to be able to run `Rscript` commands.
-
-Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `r`. 
-
-Place required R packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment. 
-
-With that being said, our testing script `run_tester_r.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally. 
+* For **Python** submissions on `OSX` or `Linux` see the docs under [a relative link](docs/quickstart_osx_linux/python.md).
+* For **R** submissions on `OSX` or `Linux` see the docs under [a relative link](docs/quickstart_osx_linux/r.md).
+* We **highly** recommend using a virtual environment for Python development: [a relative link](docs/quickstart_osx_linux/virtual_env.md).
 
 ## Windows
 
-At all phases of the development process it is highly recommended to run `py run_tester_r.py` from within the `r` directory.
-
-If your submission is not able to run with `py run_tester_r.py` it will NOT run on our platform.
-
-This script will ensure that the submission folder satisfies:
-
-|--README.md
-|-- r
-   |-- core.r
-   |-- requirements.txt
-   |-- submission.r
-|-- src
-   |-- model_tester.py
-   |-- scorer.py
-|-- data.csv
-|-- data-training.csv
-
-Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `py run_tester_r.py`.
-
-## macOS and Linux
-
-At all phases of the development process it is highly recommended to run `python3 run_tester_r.py` from within the `r` directory.
-
-If your submission is not able to run with `python3 run_tester_r.py` it will NOT run on our platform.
-
-This script will ensure that the submission folder satisfies:
-
-|--README.md
-|-- r
-   |-- core.r
-   |-- requirements.txt
-   |-- submission.r
-|-- src
-   |-- model_tester.py
-   |-- scorer.py
-|-- data.csv
-|-- data-training.csv
-
-Additionally, `run_tester_r.py` will also run `src/model_tester.py`, and return a score. 
-
-The result & score can be found in the results folder that will be created upon successfully running `python3 run_tester_r.py`.
+* For **Python** submissions on `Windows` see the docs under [a relative link](docs/quickstart_windows/python.md).
+* For **R** submissions on `R` see the docs under [a relative link](docs/quickstart_windows/r.md).
+* We **highly** recommend using a virtual environment for Python development: [a relative link](docs/quickstart_windows/virtual_env.md)
 
 ### The `src` folder
 
@@ -194,7 +46,6 @@ The result & score can be found in the results folder that will be created upon 
 ## `src/scorer.py`
 * This program is used to score a prediction vector.
 * This program will print the final `r2` value to stdout after running.
-
 
 ### The Submission Folders
 
@@ -243,35 +94,5 @@ This folder should be removed if the solution is written in `python`.
 
 #### For Python submissions
 
-Follow these steps to upload a python submission:
-
-##### Step 1
-Match this directory structure.
-
-     python
-     ├── core.py (required)
-     ├── submission.py (required)
-     └── requirements.txt
-
-##### Step 2
-Zip the whole directory (i.e. `python.zip`)
-
-##### Step 3
-Upload this .zip file on the challenge submission page.
-
-#### For R submissions
-
-Follow these steps to upload an r submission:
-
-##### Step 1
-Match this directory structure.
-
-     r
-     ├── submission.r (required)
-     └── requirements.txt
-
-##### Step 2
-Zip the whole directory (i.e. `r.zip`)
-
-##### Step 3
-Upload this .zip file on the challenge submission page.
+* Follow the steps in [a relative link](docs/submissions/python.md) ` to upload a Python submission.
+* Follow the steps in [a relative link](docs/submissions/r.md) to upload a R submission.
