@@ -1,6 +1,6 @@
 ### R Quickstart (OSX and Linux)
 
-NOTE: we expect you to have Python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
+NOTE: Python 3 should be installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
 
 Requirements: Python 3.6 or higher
 
