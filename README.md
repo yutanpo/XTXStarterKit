@@ -28,7 +28,11 @@ Install Python 3 from [here](https://www.python.org/downloads/release/python-373
 
 Ensure that all development is being done within the `python` folder.
 
-Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`. 
+Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`.
+
+Place required Python packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment.
+
+With that being said, our testing script `run_tester_python.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally.
 
 ### Windows
 
@@ -36,7 +40,7 @@ Objects that are required for your submission to run successfully such as: model
 
 We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
 
-The main purpose of Python virtual environments is to create an isolated environment for Python projects.
+The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
 
 Run the following commands from within the `python` directory to setup a Python virtual environment:
 
@@ -58,8 +62,6 @@ If your submission is not able to run with `py run_tester_python.py`, it will NO
 
 This script will ensure that submission folder is in accordance with:  
 
-We highly recommend setting up a virtual environemnt for Python development. 
-
 |--README.md
 |-- python
    |-- core.py
@@ -70,6 +72,7 @@ We highly recommend setting up a virtual environemnt for Python development.
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
 
 Additionally, `py run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
@@ -81,7 +84,7 @@ The result & score can be found in the results folder that will be created upon 
 
 We highly recommend setting up a virtual environment before running the `run_tester_python.py` script.
 
-The main purpose of Python virtual environments is to create an isolated environment for Python projects.
+The main purpose of a Python virtual environment is to create an isolated environment for Python projects.
 
 Run the following commands from within the `python` directory to setup a Python virtual environment:
 
@@ -103,8 +106,6 @@ If your submission is not able to run with `python3 run_tester_python.py`, it wi
 
 This script will ensure that submission folder is in accordance with:  
 
-We highly recommend setting up a virtual environemnt for Python development. 
-
 |--README.md
 |-- python
    |-- core.py
@@ -115,6 +116,7 @@ We highly recommend setting up a virtual environemnt for Python development.
    |-- model_tester.py
    |-- scorer.py
 |-- data.csv
+|-- data-training.csv
 
 Additionally, `python3 run_tester_python.py` will also run `src/model_tester.py`, and return a score. 
 
@@ -122,7 +124,7 @@ The result & score can be found in the results folder that will be created upon 
 
 ### R
 
-NOTE: we expect you to have python 3 installed in order to run `run_tester_r.py`. 
+NOTE: we expect you to have python 3 installed in order to run `run_tester_r.py`. You will not need to make changes to `run_tester_r.py`, it is used to test your submission.
 
 Please install Python 3 from [here](https://www.python.org/downloads/release/python-373/).
 
@@ -133,6 +135,10 @@ We require your system to be able to run `Rscript` commands.
 Ensure that all development is being done within the `r` folder. 
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `r`. 
+
+Place required R packages in the `requirements.txt` file. These packages will be installed on the fly on our submission environment. 
+
+With that being said, our testing script `run_tester_r.py` will NOT install these packages; therefore, please ensure your system has the packages installed in order to test locally. 
 
 ## Windows
 
@@ -234,7 +240,7 @@ This folder should be removed if the solution is written in `python`.
 * To debug, messages should be printed to stderr.
 
 ##### `r/requirements.txt`
-* **Any packages or dependencies necessary for the submission should be added here.**
+* **Any packages or dependencies necessary for the R submission should be added here.**
 * These will be installed at runtime.
 
 ### Submission Instructions
