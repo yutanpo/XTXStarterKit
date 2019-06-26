@@ -22,7 +22,7 @@ submission. For example, if the language used in a submission is `python`, the `
 
 ### Quickstart
 
-## Python
+### Python
 
 Install Python 3 from [here](https://www.python.org/downloads/release/python-373/)
 
@@ -30,7 +30,7 @@ Ensure that all development is being done within the `python` folder.
 
 Objects that are required for your submission to run successfully such as: models, files that you create must be stored in `python`. 
 
-## Windows
+### Windows
 
 ## Setting up a virtual environment & installing requirements.txt packages
 
@@ -75,8 +75,7 @@ Additionally, `py run_tester_python.py` will also run `src/model_tester.py`, and
 
 The result & score can be found in the results folder that will be created upon successfully running `py run_tester_python.py`.
 
-
-## macOS and Linux
+### macOS and Linux
 
 ## Setting up a virtual environment & installing requirements.txt packages
 
