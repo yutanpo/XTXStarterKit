@@ -3,7 +3,7 @@ This file is used to test your model.
 CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
-import time, subprocess, sys, multiprocessing, os, platform, socket
+import time, subprocess, sys, os, platform, socket, math
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -83,6 +83,9 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
             print(f"Submitted a prediction for {lines_processed} data rows.")
         
         pred = output.__next__().decode("utf-8")
+
+        if not isinstance(float(pred), float) or math.isnan(float(pred)):
+            raise ValueError(f"ValueError: expected type <int> or <float> for prediction, got {pred}")
        
         if platform.system() == "Windows":
             result_file.write(pred[:-1])
