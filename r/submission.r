@@ -75,7 +75,16 @@ init()
 # get_prediction(data) expects a row of data from data.csv as input and should return a float that represents a
 #     prediction for the supplied row of data 
 get_prediction <- function(data) {
-  return(1)
+  split_data <- unlist(strsplit(data, "[,]"))
+  bidSize0 = as.numeric(split_data[46])
+  askSize0 = as.numeric(split_data[16])
+  if(is.null(bidSize0)){
+    bidSize0 = 0
+  }
+  if(is.null(askSize0)){
+    askSize0 = 0
+  }
+  return(0.0025 * (bidSize0-askSize0))
 }
 
 debug_print("Use the print function `debug_print(...)` for debugging purposes, do NOT use the default `print(...)`")
@@ -86,10 +95,6 @@ while (TRUE) {
 	  #		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
 	  #
 	  #		Uncomment the one that will be used, and comment the others.
-   
-    #data <- get_next_data_as_dataframe()
-    #data <- get_next_data_as_list()
-    #data <- get_next_data_as_matrix()
     data <- get_next_data_as_string()
     
     # Write prediction logic in get_prediction(...)
