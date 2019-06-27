@@ -18,7 +18,7 @@ There are two programming languages that are currently supported for this challe
 In this challenge, There are three relevant folders - one named `src` containing all the source code needed to process data 
 files and getting your result, another two named either `python` or `r` depending on preference of language to be used in the 
 submission. The first step should be to choose a programming language by removing the folder that is unnecessary for the 
-submission. For example, if the language used in a submission is `python`, the `r` folder should be removed.
+submission. For example, if the language used in a submission is Python, the `r` folder should be removed.
 
 ### Quickstart
 
@@ -31,13 +31,13 @@ submission. For example, if the language used in a submission is `python`, the `
 ## Windows
 
 * For **Python** submissions on `Windows` see the docs under [docs/quickstart_windows/python.md](docs/quickstart_windows/python.md).
-* For **R** submissions on `R` see the docs under [docs/quickstart_windows/r.md](docs/quickstart_windows/r.md).
+* For **R** submissions on `OSX` or `Linux` see the docs under [docs/quickstart_windows/r.md](docs/quickstart_windows/r.md).
 * We **highly** recommend using a virtual environment for Python development: [docs/quickstart_windows/virtual_env.md](docs/quickstart_windows/virtual_env.md)
 
 ### The `src` folder
 
 **None of these files require changing**; however, there are a couple of files in this folder that are quite important to know.
-**Please refrain from trying to run these files manually**; there is a script in the `python` and `R` folders that runs the model_tester and scorer.
+**Please refrain from trying to run these files manually**; there is a script in the `python` and R folders that runs the model_tester and scorer.
 
 ## `src/model_tester.py`
 * A prediction vector will be outputted at the value of `RESULT_LOCATION`.
@@ -51,14 +51,14 @@ submission. For example, if the language used in a submission is `python`, the `
 
 #### `python`
 
-This folder should be removed if the solution is written in `R`.
+This folder should be removed if the solution is written in R.
 
 ##### `python/core.py`
 * This file does not need to be modified
 * This file contains the `Submission` class, all code to interact with `src/model_tester.py`
 
 ##### `python/submission.py`
-* This file should be used if the solution is written in `python`.
+* This file should be used if the solution is written in Python.
 * This file contains the starter code for the submission program.
 * This extends the `Submission` class found in `core.py`.
 * The function `self.get_next_data()` **must** be used to read a line of data.
@@ -73,10 +73,10 @@ This folder should be removed if the solution is written in `R`.
 
 #### `r`
 
-This folder should be removed if the solution is written in `python`.
+This folder should be removed if the solution is written in Python.
 
 ##### `r.submission.r`
-* This file should be used if the solution is written in `R`.
+* This file should be used if the solution is written in R.
 * This file contains the starter code for the submission program.
 * The function `get_next_data()` **must** be used to read a line of data.
 * The function `submit_prediction(pred)` **must** be used to submit a prediction for the `y` value of the next row of data.
@@ -85,15 +85,15 @@ This folder should be removed if the solution is written in `python`.
 * To debug, messages should be printed to stderr.
 
 ##### `r/requirements.txt`
-* **Any packages or dependencies necessary for the `R` submission should be added here.**
+* **Any packages or dependencies necessary for the R submission should be added here.**
 * These will be installed at runtime.
 
 ### Submission Instructions
 
 #### For Python submissions
 
-* Follow the steps in [docs/submissions/python.md](docs/submissions/python.md) to upload a `Python` submission.
+* Follow the steps in [docs/submissions/python.md](docs/submissions/python.md) to upload a Python submission.
 
 #### For R submissions
 
-* Follow the steps in [docs/submissions/r.md](docs/submissions/r.md) to upload a `R` submission.
+* Follow the steps in [docs/submissions/r.md](docs/submissions/r.md) to upload a R submission.
