@@ -57,8 +57,9 @@ source("core.r")
 #
 ###################################################### IMPORTANT ######################################################
 # 
-# 1. One of the methods get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() MUST be used and
-#    _prediction(pred) MUST be used to submit below in the solution implementation for the submission to work correctly.
+# 1. One of the methods get_next_data_as_string(), get_next_data_as_list(), get_next_data_as_matrix(),
+#    or get_next_data_as_matrix() MUST be used and _prediction(pred) MUST be used to submit below in the solution
+#    implementation for the submission to work correctly.
 # 2. get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() CANNOT be called more then once in
 #    a row without calling self.submit_prediction(pred).
 # 3. In order to debug by printing do NOT call the default method `print(...)`, rather call debug_print(...)
@@ -91,8 +92,9 @@ debug_print("Use the print function `debug_print(...)` for debugging purposes, d
 
 while (TRUE) {
     tryCatch({
-    # NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
-	  #		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
+    # NOTE: Only one of (get_next_data_as_string, get_next_data_as_dataframe, get_next_data_as_list,
+	  #             get_next_data_as_matrix) can be used to get the row of data, please refer to the
+	  #             `OVERVIEW OF DATA` section above.
 	  #
 	  #		Uncomment the one that will be used, and comment the others.
     #data <- get_next_data_as_dataframe()
