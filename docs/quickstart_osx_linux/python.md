@@ -18,8 +18,8 @@ This script will ensure that the submission folder satisfies:
 |-- python<br />
 ---|-- core.py<br />
 ---|-- requirements.txt<br />
----|-- run_tester_python.sh<br />
 ---|-- submission.py<br />
+---|-- run_tester_python.py<br />
 |-- src<br />
 ---|-- model_tester.py<br />
 ---|-- scorer.py<br />

@@ -8,6 +8,7 @@ Match this directory structure.
      python
      ├── core.py (required)
      ├── submission.py (required)
+     |── run_tester_python.py (not required)
      └── requirements.txt
 
 ##### Step 2

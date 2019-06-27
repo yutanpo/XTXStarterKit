@@ -27,6 +27,7 @@ This script will ensure that the submission folder satisfies:
 ---|-- core.r<br />
 ---|-- requirements.txt<br />
 ---|-- submission.r<br />
+---|-- run_tester_r.py<br />
 |-- src<br />
 ---|-- model_tester.py<br />
 ---|-- scorer.py<br />
