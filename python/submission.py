@@ -8,13 +8,13 @@ Implement the model below
 
 ##################################################### OVERVIEW ######################################################
 
-1. Use get_next_data_raw() OR get_next_data_as_list() OR get_next_data_as_numpy_array() to recieve the next row of data
+1. Use get_next_data_as_string() OR get_next_data_as_list() OR get_next_data_as_numpy_array() to recieve the next row of data
 2. Use the predict method to write the prediction logic, and return a float representing your prediction
 3. Submit a prediction using self.submit_prediction(...)
 
 ################################################# OVERVIEW OF DATA ##################################################
 
-1. get_next_data_raw() accepts no input and returns a String representing a row of data extracted from data.csv
+1. get_next_data_as_string() accepts no input and returns a String representing a row of data extracted from data.csv
      Example output: '1619.5,1620.0,1621.0,,,,,,,,,,,,,1.0,10.0,24.0,,,,,,,,,,,,,1615.0,1614.0,1613.0,1612.0,1611.0,
      1610.0,1607.0,1606.0,1605.0,1604.0,1603.0,1602.0,1601.5,1601.0,1600.0,7.0,10.0,1.0,10.0,20.0,3.0,20.0,27.0,11.0,
      14.0,35.0,10.0,1.0,10.0,13.0'
@@ -36,9 +36,9 @@ Implement the model below
 
 ##################################################### IMPORTANT ######################################################
 
-1. One of the methods get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() MUST be used and
+1. One of the methods get_next_data_as_string(), get_next_data_as_list(), or get_next_data_as_numpy_array() MUST be used and
    _prediction(pred) MUST be used to submit below in the solution implementation for the submission to work correctly.
-2. get_next_data_raw(), get_next_data_as_list(), or get_next_data_as_numpy_array() CANNOT be called more then once in a
+2. get_next_data_as_string(), get_next_data_as_list(), or get_next_data_as_numpy_array() CANNOT be called more then once in a
    row without calling self.submit_prediction(pred).
 3. In order to debug by printing do NOT call the default method `print(...)`, rather call self.debug_print(...)
 
@@ -60,7 +60,7 @@ class MySubmission(Submission):
 
     """
     run_submission() will iteratively fetch the next row of data in the format 
-       specified (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array)
+       specified (get_next_data_as_string, get_next_data_as_list, get_next_data_as_numpy_array)
        for every prediction submitted to self.submit_prediction()
     """
     def run_submission(self):
@@ -69,7 +69,7 @@ class MySubmission(Submission):
 
         while(True):
             """
-            NOTE: Only one of (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array) can be used
+            NOTE: Only one of (get_next_data_as_string, get_next_data_as_list, get_next_data_as_numpy_array) can be used
             to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
 
             Uncomment the one that will be used, and comment the others.
