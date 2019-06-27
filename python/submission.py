@@ -53,7 +53,10 @@ class MySubmission(Submission):
        prediction for the supplied row of data
     """
     def get_prediction(self, data):
-        return 1.0
+        x = [float(x) if x else 0 for x in data.split(',')]
+        bidSize0 = x[45]
+        askSize0 = x[15]
+        return 0.0025 * (bidSize0 - askSize0)
 
     """
     run_submission() will iteratively fetch the next row of data in the format 
