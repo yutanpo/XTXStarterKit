@@ -31,7 +31,7 @@ submission. For example, if the language used in a submission is Python, the `r`
 ## Windows
 
 * For **Python** submissions on `Windows` see the docs under [docs/quickstart_windows/python.md](docs/quickstart_windows/python.md).
-* For **R** submissions on `OSX` or `Linux` see the docs under [docs/quickstart_windows/r.md](docs/quickstart_windows/r.md).
+* For **R** submissions on `Windows` see the docs under [docs/quickstart_windows/r.md](docs/quickstart_windows/r.md).
 * We **highly** recommend using a virtual environment for Python development: [docs/quickstart_windows/virtual_env.md](docs/quickstart_windows/virtual_env.md)
 
 ### The `src` folder
