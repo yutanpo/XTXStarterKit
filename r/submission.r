@@ -95,6 +95,9 @@ while (TRUE) {
 	  #		to get the row of data, please refer to the `OVERVIEW OF DATA` section above.
 	  #
 	  #		Uncomment the one that will be used, and comment the others.
+    #data <- get_next_data_as_dataframe()
+    #data <- get_next_data_as_list()
+    #data <- get_next_data_as_matrix()
     data <- get_next_data_as_string()
     
     # Write prediction logic in get_prediction(...)
