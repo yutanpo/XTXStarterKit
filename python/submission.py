@@ -60,7 +60,7 @@ class MySubmission(Submission):
 
     """
     run_submission() will iteratively fetch the next row of data in the format 
-       specified (get_next_data_raw, get_next_data_as_list, get_next_data_as_numpy_array)
+       specified (get_next_data_as_string, get_next_data_as_list, get_next_data_as_numpy_array)
        for every prediction submitted to self.submit_prediction()
     """
     def run_submission(self):
