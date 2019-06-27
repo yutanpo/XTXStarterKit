@@ -40,5 +40,5 @@ r2 = 1 - err2_tally / y2_tally
 
 print(f"You achieved an r2 value of {r2}.")
 
-with open(SCORE_LOCATION, 'a+') as wp:
+with open(SCORE_LOCATION, 'w') as wp:
     wp.write(str(r2))
