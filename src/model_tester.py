@@ -1,10 +1,9 @@
 """
 This file is used to test your model.
-
 CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
-import time, subprocess, sys, multiprocessing, os
+import time, subprocess, sys, os, platform, socket, math
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -13,6 +12,7 @@ DATASET_LOCATION = os.path.join(cwd, 'data.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
 INCLUDE_Y_VALUE = False
+lines_processed = 0
 argc = len(sys.argv)
 
 
@@ -38,18 +38,22 @@ def __create_dir(filepath):
 
 __create_dir(RESULT_LOCATION)
 __create_dir(SCORE_LOCATION)
+
 if not os.path.isfile(DATASET_LOCATION):
     print(f"Cannot find dataset at {DATASET_LOCATION}, please move dataset \
             here or specify dataset path")
 
-p = subprocess.Popen(["python3", "submission.py"], stdin=subprocess.PIPE,
+
+if platform.system() == "Windows":
+    python_tag = "py"
+else:
+    python_tag = "python3"
+
+p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
         stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
     if not(argc > 1 and sys.argv[1] == "r") else \
     subprocess.Popen(["Rscript", "submission.r"],
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-
-stderr_logger_thread = multiprocessing.Process(target=log_pipe, args=(p,))
-stderr_logger_thread.start()
 
 output = follow(p)
 
@@ -61,16 +65,32 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         data_row = data_file.readline()
         if not data_row: # EOF
             break
-            
+        
+        lines_processed += 1
+
         if not INCLUDE_Y_VALUE:
             data_row = ','.join(data_row.split(',')[:-1]) + '\n'
 
-        p.stdin.write(str.encode(data_row))
-        p.stdin.flush()
-        result_file.write(output.__next__().decode("utf-8"))
+        try:
+            p.stdin.write(str.encode(data_row))
+            p.stdin.flush()
+        except socket.error as e:
+            print(str(e))
+            print(p.stderr.read().decode("utf-8"))
+            raise
 
-stderr_logger_thread.terminate()
+        if lines_processed % 10000 == 0:
+            print(f"Submitted a prediction for {lines_processed} data rows.")
+        
+        pred = output.__next__().decode("utf-8")
+
+        if not isinstance(float(pred), float) or math.isnan(float(pred)):
+            raise ValueError(f"ValueError: expected type <int> or <float> for prediction, got {pred}")
+       
+        if platform.system() == "Windows":
+            result_file.write(pred[:-1])
+        else:
+            result_file.write(pred)
 
 # Score submission
-p = subprocess.run(["python3", "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
-
+p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
