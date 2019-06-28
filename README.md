@@ -22,6 +22,8 @@ submission. For example, if the language used in a submission is Python, the `r`
 
 ### Quickstart
 
+* Submissions will not be able to access the Internet on our submission environment. 
+
 ## OSX and Linux
 
 * For **Python** submissions on `OSX` or `Linux` see the docs under [docs/quickstart_osx_linux/python.md](docs/quickstart_osx_linux/python.md).
