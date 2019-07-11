@@ -82,7 +82,7 @@ class Submission():
             raise GetNextDataCalledTwiceException("get_next_data_as_numpy_array() can only be called once for every prediction made.")
         try:
             import numpy
-            return numpy.array(self.get_data_as_list())
+            return numpy.array(self.get_next_data_as_list())
         except:
             raise NotInstalledPackageException('The package numpy is not installed.')
     
