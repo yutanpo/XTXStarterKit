@@ -84,9 +84,12 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         
         pred = output.__next__().decode("utf-8")
 
-        if not isinstance(float(pred), float) or math.isnan(float(pred)):
-            raise ValueError(f"ValueError: expected type <int> or <float> for prediction, got {pred}")
-       
+        try:
+            if not isinstance(float(pred), float) or math.isnan(float(pred)):
+                raise ValueError(f"expected type <int> or <float> for prediction, got {pred}")
+        except ValueError as e:
+            raise ValueError(f"expected type <int> or <float> for prediction, got {pred}")
+        
         if platform.system() == "Windows":
             result_file.write(pred[:-1])
         else:
