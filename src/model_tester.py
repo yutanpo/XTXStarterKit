@@ -4,6 +4,7 @@ CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
 import time, subprocess, sys, os, platform, socket, math
+import threading, logging
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -11,17 +12,18 @@ RESULT_LOCATION = os.path.join(cwd, 'results/result.txt')
 DATASET_LOCATION = os.path.join(cwd, 'data.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
+logger = logging.getLogger()
+
+
 INCLUDE_Y_VALUE = False
 lines_processed = 0
 argc = len(sys.argv)
 
 
-def log_pipe(pipe):
-    try:
-        for line in iter(pipe.stderr.readline, b''):
-            print(line.decode('utf-8'))
-    except AttributeError as e:
-        pass
+def read_error_output(process):
+    for line in process.stderr:
+        print(line.rstrip().decode())
+
 
 def follow(the_process):
     while(True):
@@ -56,6 +58,10 @@ p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
 output = follow(p)
+# Create new thread: pass target and argument
+stderr_thread = threading.Thread(target=read_error_output, args=(p,))
+stderr_thread.daemon=True
+stderr_thread.start()
 
 with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_file:
     # Skip header
