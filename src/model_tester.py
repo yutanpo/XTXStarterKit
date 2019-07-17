@@ -20,11 +20,6 @@ lines_processed = 0
 argc = len(sys.argv)
 
 
-def read_error_output(process):
-    for line in process.stderr:
-        print(line.rstrip().decode())
-
-
 def follow(the_process):
     while(True):
         line = the_process.stdout.readline()
@@ -52,16 +47,12 @@ else:
     python_tag = "python3"
 
 p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
+        stdout=subprocess.PIPE, stderr=sys.stderr) \
     if not(argc > 1 and sys.argv[1] == "r") else \
     subprocess.Popen(["Rscript", "submission.r"],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=sys.stderr)
 
 output = follow(p)
-# Create new thread: pass target and argument
-stderr_thread = threading.Thread(target=read_error_output, args=(p,))
-stderr_thread.daemon=True
-stderr_thread.start()
 
 with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_file:
     # Skip header
@@ -82,7 +73,6 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
             p.stdin.flush()
         except socket.error as e:
             print(str(e))
-            print(p.stderr.read().decode("utf-8"))
             raise
 
         if lines_processed % 10000 == 0:
@@ -101,5 +91,6 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         else:
             result_file.write(pred)
 
+#stderr_thread.join()
 # Score submission
 p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
