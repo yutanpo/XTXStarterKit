@@ -4,6 +4,7 @@ CHANGES TO THIS FILE ARE NOT SUBMITTED.
 """
 
 import time, subprocess, sys, os, platform, socket, math
+import threading, logging
 
 # Change these paths to point to your local machine
 cwd = os.path.split(os.getcwd())[0]
@@ -11,17 +12,13 @@ RESULT_LOCATION = os.path.join(cwd, 'results/result.txt')
 DATASET_LOCATION = os.path.join(cwd, 'data.csv')
 SCORE_LOCATION = os.path.join(cwd, 'results/score.txt')
 
+logger = logging.getLogger()
+
+
 INCLUDE_Y_VALUE = False
 lines_processed = 0
 argc = len(sys.argv)
 
-
-def log_pipe(pipe):
-    try:
-        for line in iter(pipe.stderr.readline, b''):
-            print(line.decode('utf-8'))
-    except AttributeError as e:
-        pass
 
 def follow(the_process):
     while(True):
@@ -50,10 +47,10 @@ else:
     python_tag = "python3"
 
 p = subprocess.Popen([python_tag, "submission.py"], stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE, stderr=subprocess.PIPE) \
+        stdout=subprocess.PIPE, stderr=sys.stderr) \
     if not(argc > 1 and sys.argv[1] == "r") else \
     subprocess.Popen(["Rscript", "submission.r"],
-            stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=sys.stderr)
 
 output = follow(p)
 
@@ -76,7 +73,6 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
             p.stdin.flush()
         except socket.error as e:
             print(str(e))
-            print(p.stderr.read().decode("utf-8"))
             raise
 
         if lines_processed % 10000 == 0:
@@ -84,13 +80,17 @@ with open(DATASET_LOCATION) as data_file, open(RESULT_LOCATION, 'w') as result_f
         
         pred = output.__next__().decode("utf-8")
 
-        if not isinstance(float(pred), float) or math.isnan(float(pred)):
-            raise ValueError(f"ValueError: expected type <int> or <float> for prediction, got {pred}")
-       
+        try:
+            if not isinstance(float(pred), float) or math.isnan(float(pred)):
+                raise ValueError(f"expected type <int> or <float> for prediction, got {pred}")
+        except ValueError as e:
+            raise ValueError(f"expected type <int> or <float> for prediction, got {pred}")
+        
         if platform.system() == "Windows":
             result_file.write(pred[:-1])
         else:
             result_file.write(pred)
 
+#stderr_thread.join()
 # Score submission
 p = subprocess.run([python_tag, "../src/scorer.py", RESULT_LOCATION, DATASET_LOCATION, SCORE_LOCATION])
